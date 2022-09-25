@@ -9,15 +9,26 @@ $entrar = $_POST["entrar"];
 $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 $result = $conn->query($sql);
 
+$sql1 = "SELECT * FROM usuarios WHERE usuario = 'admin'";
+$result1 = $conn->query($sql1);
+
 if(isset($entrar)){
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        if($row['senha'] == $senha){
-            $_SESSION['token_auth'] = md5($senha);
+        $row1 = $result1->fetch_assoc();
+
+        if($usuario == $row1['usuario'] && $senha == $row1['senha']){
+            $_SESSION['token_authAdmin'] = md5($senha);
+            header("location: redirect.php");
+        }
+        elseif($row['senha'] == $senha){
+            $_SESSION['token_auth'] = $senha;
+            $_SESSION['token_id'] = $usuario;
             header("location: redirect.php");
         }else{
             header("location: ../view/login.php");
         }
+
     }else{
         header("location: ../view/login.php");
     }
