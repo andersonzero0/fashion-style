@@ -1,1 +1,0 @@
-htmlspecialchars( basename( $_FILES["img-product"]["name"]))
