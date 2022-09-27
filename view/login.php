@@ -13,7 +13,7 @@
     <main>
         <!-- *não altere o valores dos atributos, pode criar classes-->
         <div id="login-box">
-            <form action="../controller/auth.php" method="post" id="login-box">
+            <form action="../controller/auth.php" method="post" id="form-login">
 
                 <label for="usuario">USUÁRIO:</label>
                 <input type="text" name="usuario" id="usuario">

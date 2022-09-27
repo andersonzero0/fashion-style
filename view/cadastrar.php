@@ -13,7 +13,7 @@
     <main>
         <!-- *não altere o valores dos atributos, pode criar classes-->
         <div id="cadastro-box">
-            <form action="../controller/cadastro.php" method="post" id="cadastro-box">
+            <form action="../controller/cadastro.php" method="post" id="form-cadastro">
 
                 <label for="usuario_cad">USUÁRIO:</label>
                 <input type="text" name="usuario_cad" id="usuario_cad">
