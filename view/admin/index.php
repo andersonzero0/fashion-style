@@ -77,6 +77,10 @@ if(!isset($_SESSION['token_authAdmin'])){
         <div id="pedidos">
             
         </div>
+
+        <div id="excluir-produtos">
+            
+        </div>
     </main>
 
     <footer>
