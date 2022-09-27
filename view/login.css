@@ -1,0 +1,62 @@
+/* INSTRUÇÕES */
+/* Crie uma pasta chamada "css" dentro da pasta "view" do modelo mvc e depois adicione esse arquivo lá */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2? família= Lagosta &family= Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900 & display=swap');
+/* Cores
+#301E96
+#393263
+#180F4A
+#574B96
+#492DE3
+ */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.nav-bar {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    background-color: #574b96dc;
+    position: sticky;
+    top: 0px;
+}
+.logo {
+    width: 50%;
+    /* border: 1px solid black; */
+    margin-left: 5%;
+    font-size: 30px;
+    color: #301E96;
+    font-family: 'Lobster', cursive;
+}
+.menu {
+    width: 40%;
+    /* border: 1px solid black; */
+    margin-right: 5%;
+}
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.menu ul li {
+    margin: 10px 26px;
+}
+.menu ul li a {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #180F4A;
+    text-decoration: none;
+    color: white;
+    box-shadow: 5px 5px 5px #574B96;
+}
+.menu ul li a:hover {
+    border: 10px solid #180F4A;
+}
