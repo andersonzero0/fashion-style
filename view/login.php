@@ -13,10 +13,10 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#" target="_self" rel="next" id="botao">Pedidos</a></li>
-                <li><a href="#" target="_self" rel="next">Login</a></li>
-                <li><a href="#" target="_self" rel="next">Cadastrar</a></li>
-                <li><a href="#" target="_self" rel="next">Contato</a></li>
+                <li><a href="#" target="_self" rel="next" id="botao">PEDIDOS</a></li>
+                <li><a href="#" target="_self" rel="next">LOGIN</a></li>
+                <li><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+                <li><a href="#" target="_self" rel="next">CONTATO</a></li>
             </ul>
         </div>
     </nav>
