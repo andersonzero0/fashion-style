@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css" type="text/css">
     <title>Login - Fashion Style</title>
 </head>
 <body>
-    <header>
-    <!--front-end-->
-    </header>
-
+    <nav class="nav-bar">
+        <div class="logo">
+            Fashion Style
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#" target="_self" rel="next" id="botao">Pedidos</a></li>
+                <li><a href="#" target="_self" rel="next">Login</a></li>
+                <li><a href="#" target="_self" rel="next">Cadastrar</a></li>
+                <li><a href="#" target="_self" rel="next">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
     <main>
         <!-- *não altere o valores dos atributos, pode criar classes-->
         <div id="login-box">
             <form action="../controller/auth.php" method="post" id="form-login">
 
-                <label for="usuario">USUÁRIO:</label>
-                <input type="text" name="usuario" id="usuario">
+                <fieldset class="campo">
+                    <label for="usuario">USUÁRIO:</label>
+                    <input type="text" name="usuario" id="usuario" size="60" maxlength="80" placeholder="Informe o seu nome de usuário">
+                </fieldset>
 
-                <label for="senha">SENHA:</label>
-                <input type="password" name="senha" id="senha">
+                <fieldset class="campo">
+                    <label for="senha">SENHA:</label>
+                    <input type="password" name="senha" id="senha">
+                </fieldset>
 
                 <input type="submit" name="entrar" value="ENTRAR">
 
             </form>
         </div>
     </main>
-
     <footer>
     <!--front-end-->
     </footer>
