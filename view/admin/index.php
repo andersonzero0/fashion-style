@@ -4,8 +4,6 @@ include "../../model/connect-db.php";
 if(!isset($_SESSION['token_authAdmin'])){
     header("location: ../../index.php");
 }else{
-    $sql = "SELECT * FROM produtos";
-    $result = $conn->query($sql);
 ?>
 
 
@@ -50,6 +48,8 @@ if(!isset($_SESSION['token_authAdmin'])){
 
         <div id="produtos">
 <?php
+            $sql = "SELECT * FROM produtos";
+            $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
 ?>
@@ -74,9 +74,39 @@ if(!isset($_SESSION['token_authAdmin'])){
 ?>
         </div>
 
+<?php
+    $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
+
+    $result1 = $conn->query($sql1);
+    if ($result->num_rows > 0) {
+        while($row1 = $result1->fetch_assoc()) {
+?>
         <div id="pedidos">
-            
+            <table>
+                <tr>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Nome Completo</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td><?=$row1['produto']?></td>
+                    <td><?=$row1['valor']?></td>
+                    <td><?=$row1['nomeCompleto']?></td>
+                    <td><?=$row1['endereco']?></td>
+                    <td><?=$row1['telefone']?></td>
+                    <td><?=$row1['email']?></td>
+                </tr>
+            </table>
         </div>
+<?php
+    }
+    }else{
+        echo "Não há pedidos";
+    }
+?>
 
         <div id="excluir-produtos">
             

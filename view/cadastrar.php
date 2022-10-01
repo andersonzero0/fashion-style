@@ -26,6 +26,19 @@
                 <fieldset class="campo">
                     <label for="usuario_cad" id="etiqueta1">USUÁRIO:</label>
                     <input type="text" name="usuario_cad" id="usuario_cad" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:">
+                    
+                    <label for="nomeCompleto">NOME COMPLETO:</label>
+                    <input type="text" name="nomeCompleto" id="nomeCompleto">
+
+                    <label for="endereco">ENDEREÇO:</label>
+                    <input type="text" name="endereco" id="endereco">
+
+                    <label for="telefone">TELEFONE:</label>
+                    <input type="tel" name="telefone" id="telefone">
+
+                    <label for="email">EMAIL:</label>
+                    <input type="email" name="email" id="email">
+
                     <label for="senha_cad" id="etiqueta2">SENHA:</label>
                     <input type="password" name="senha_cad" id="senha_cad" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:">
                 </fieldset>

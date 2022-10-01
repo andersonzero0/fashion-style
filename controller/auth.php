@@ -22,8 +22,7 @@ if(isset($entrar)){
             header("location: redirect.php");
         }
         elseif($row['senha'] == $senha){
-            $_SESSION['token_auth'] = $senha;
-            $_SESSION['token_id'] = $usuario;
+            $_SESSION['token_auth'] = $usuario;
             header("location: redirect.php");
         }else{
             header("location: ../view/login.php");
