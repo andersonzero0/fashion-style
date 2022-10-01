@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2? família= Lagosta &family= Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900 & display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+.nav-bar {
+    height: 20vh;
+    width: 99.8vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: sticky;
+    top: 0px;
+}
+.logo {
+    flex: 50%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo a {
+    text-decoration: none;
+    font-size: 34px;
+    color: #180F4A;
+    font-family: 'Lobster', cursive;
+}
+.menu {
+    flex: 40%;
+    margin-right: 5%;
+}
+.menu ul {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menu ul li a {
+    color: #180F4A;
+    text-decoration: none;
+    padding: 20px 16px;
+    font-size: 20px;
+}
+.menu ul li a:hover {
+    background-color: rgb(13, 211, 13);
+    color: white;
+    border-radius: 5px;
+}
+#botao {
+    background-color: #180F4A;
+    color: white;
+    border-radius: 5px;
+}
+#cadastro-box {
+    border-radius: 10px;
+    border: 5px double black;
+    box-shadow: 5px 5px 5px #180F4A;
+    height: 60vh;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: rgb(255, 242, 242);
+}
+#form-cadastro {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.campo {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.campo input {
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 10px;
+}
+#etiqueta1 {
+    margin-right: 67%;
+}
+#etiqueta2 {
+    margin-right: 70%;
+}
+#form-button {
+    background-color: greenyellow;
+    color: green;
+    border: 1px solid greenyellow;
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin-top: 20px;
+}
