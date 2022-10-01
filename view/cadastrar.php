@@ -21,7 +21,6 @@
         </div>
     </nav>
     <main>
-        <!-- *não altere o valores dos atributos, pode criar classes-->
         <div id="cadastro-box">
             <form action="../controller/cadastro.php" method="post" id="form-cadastro">
                 <fieldset class="campo">
