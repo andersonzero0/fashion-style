@@ -60,7 +60,7 @@
     color: white;
     border-radius: 5px;
 }
-#login-box {
+#cadastro-box {
     border-radius: 10px;
     border: 5px double black;
     box-shadow: 5px 5px 5px #180F4A;
@@ -71,7 +71,7 @@
     margin-right: 25%;
     background-color: rgb(255, 242, 242);
 }
-#form-login {
+#form-cadastro {
     height: 100%;
     display: flex;
     flex-direction: column;
