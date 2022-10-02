@@ -13,23 +13,27 @@ $sql1 = "SELECT * FROM usuarios WHERE usuario = 'admin'";
 $result1 = $conn->query($sql1);
 
 if(isset($entrar)){
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $row1 = $result1->fetch_assoc();
+    if(!isset($_SESSION['token_auth']) AND !isset($_SESSION['token_authAdmin'])){
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $row1 = $result1->fetch_assoc();
 
-        if($usuario == $row1['usuario'] && $senha == $row1['senha']){
-            $_SESSION['token_authAdmin'] = md5($senha);
-            header("location: redirect.php");
-        }
-        elseif($row['senha'] == $senha){
-            $_SESSION['token_auth'] = $usuario;
-            header("location: redirect.php");
+            if($usuario == $row1['usuario'] && $senha == $row1['senha']){
+                $_SESSION['token_authAdmin'] = md5($senha);
+                header("location: redirect.php");
+            }
+            elseif($row['senha'] == $senha){
+                $_SESSION['token_auth'] = $usuario;
+                header("location: redirect.php");
+            }else{
+                header("location: ../view/login.php");
+            }
+
         }else{
             header("location: ../view/login.php");
         }
-
     }else{
-        header("location: ../view/login.php");
+        header('location: exit.php');
     }
 }
 ?>

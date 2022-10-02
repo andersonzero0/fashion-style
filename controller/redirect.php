@@ -7,7 +7,7 @@ if(!isset($_SESSION['token_auth']) && !isset($_SESSION['token_authAdmin'])){
     if(isset($_SESSION['token_authAdmin'])){
         header("location: ../view/admin/");
     }elseif(isset($_SESSION['token_auth'])){
-        header("location: ../index.php");
+        header("location: ../view/meuspedidos.php");
     }
 }
 ?>
