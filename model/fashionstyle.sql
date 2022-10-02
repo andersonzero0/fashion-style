@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2022 às 00:18
+-- Tempo de geração: 02-Out-2022 às 20:42
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `info_users`
+--
+
+CREATE TABLE `info_users` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `nomeCompleto` varchar(60) DEFAULT NULL,
+  `endereco` varchar(80) DEFAULT NULL,
+  `telefone` varchar(12) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `info_users`
+--
+
+INSERT INTO `info_users` (`id`, `nomeCompleto`, `endereco`, `telefone`, `email`) VALUES
+(1, 'admin', 'null', '0123456789', 'admin@fafshion'),
+(2, 'usuario test', 'null', '0987654321', 'usuario@fashion');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pedidos`
 --
 
@@ -35,6 +57,14 @@ CREATE TABLE `pedidos` (
   `horaPEDIDO` time DEFAULT NULL,
   `estado` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `client`, `produto`, `dataPEDIDO`, `horaPEDIDO`, `estado`) VALUES
+(1, 'usuario1', 'Blusa Preta', '2022-10-01', '18:12:55', 'EM ESPERA'),
+(7, 'usuario1', 'Blusa Preta', '2022-10-01', '18:28:19', 'EM ESPERA');
 
 -- --------------------------------------------------------
 
@@ -54,7 +84,8 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `valor`, `caminhoIMG`) VALUES
-(1, 'Blusa Preta', 49.99, 'Captura de tela 2022-09-25 140607.png');
+(1, 'Blusa Preta', 49.99, 'Captura de tela 2022-09-25 140607.png'),
+(2, 'Sapato Nike', 119, 'Captura de tela 2022-10-01 172059.png');
 
 -- --------------------------------------------------------
 
@@ -81,6 +112,12 @@ INSERT INTO `usuarios` (`id`, `usuario`, `senha`) VALUES
 --
 
 --
+-- Índices para tabela `info_users`
+--
+ALTER TABLE `info_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -103,16 +140,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `info_users`
+--
+ALTER TABLE `info_users`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
