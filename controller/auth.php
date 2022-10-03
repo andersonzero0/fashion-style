@@ -13,7 +13,7 @@ $sql1 = "SELECT * FROM usuarios WHERE usuario = 'admin'";
 $result1 = $conn->query($sql1);
 
 if(isset($entrar)){
-    if(!isset($_SESSION['token_auth']) AND !isset($_SESSION['token_authAdmin'])){
+    if(!isset($_SESSION['token_auth']) && !isset($_SESSION['token_authAdmin'])){
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $row1 = $result1->fetch_assoc();
@@ -33,7 +33,7 @@ if(isset($entrar)){
             header("location: ../view/login.php");
         }
     }else{
-        header('location: exit.php');
+        header('location: ../view/index.php');
     }
 }
 ?>

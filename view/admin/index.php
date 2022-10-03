@@ -21,6 +21,7 @@ if(!isset($_SESSION['token_authAdmin'])){
     </header>
 
     <main>
+        <a href="index.php"><button>ATUALIZAR</button></a>
         <div id="registrar-produto">
             <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data">
 
@@ -45,7 +46,7 @@ if(!isset($_SESSION['token_authAdmin'])){
                 <input type="submit" value="REGISTRAR">
             </form>
         </div>
-
+    <hr>
         <div id="produtos">
 <?php
             $sql = "SELECT * FROM produtos";
@@ -74,12 +75,36 @@ if(!isset($_SESSION['token_authAdmin'])){
 ?>
         </div>
 
+        <hr>
 <?php
     $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
-
+    
     $result1 = $conn->query($sql1);
     if ($result->num_rows > 0) {
         while($row1 = $result1->fetch_assoc()) {
+            if(isset($_GET['atualizar'])){
+                $estado = $_GET['estado'];
+                switch ($estado) {
+                    case 'espera':
+                        $estado = 'EM ESPERA';
+                        break;
+                    case 'caminho':
+                        $estado = 'A CAMINHO';
+                        break;
+                    case 'entrege':
+                        $estado = 'ENTREGE';
+                        break;
+                    case 'recusado':
+                        $estado = 'RECUSADO';
+                        break;
+                    default:
+                        $estado = 'EM ESPERA';
+                }
+                $id = $row1['id'];
+                $sql2 = "UPDATE pedidos SET estado = '$estado' WHERE id = '$id'";
+                $conn->query($sql2);
+                header('location: ../../controller/update.php');
+            }
 ?>
         <div id="pedidos">
             <table>
@@ -98,6 +123,17 @@ if(!isset($_SESSION['token_authAdmin'])){
                     <td><?=$row1['endereco']?></td>
                     <td><?=$row1['telefone']?></td>
                     <td><?=$row1['email']?></td>
+                    <td>
+                        <form action="index.php" method="get">
+                            <select name="estado" id="estado">
+                                <option value="espera" <?php if($row1['estado'] == 'EM ESPERA'){ ?> selected <?php } ?>>EM ESPERA</option>
+                                <option value="caminho" <?php if($row1['estado'] == 'A CAMINHO'){ ?> selected <?php } ?>>A CAMINHO</option>
+                                <option value="entrege" <?php if($row1['estado'] == 'ENTREGE'){ ?> selected <?php } ?>>ENTREGE</option>
+                                <option value="recusado" <?php if($row1['estado'] == 'RECUSADO'){ ?> selected <?php } ?>>RECUSADO</option>
+                            </select>
+                            <input type="submit" value="atualizar" name="atualizar">
+                        </form>
+                    </td>
                 </tr>
             </table>
         </div>
