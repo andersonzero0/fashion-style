@@ -1,5 +1,6 @@
 <?php
     session_start();
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +21,7 @@
         <!--SE NÃO HÁ LOGIN-->
         <div class="menu">
             <ul>
-                <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
+                <li><a href="#" target="_self" rel="next">PEDIDOS</a></li>
                 <li><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
                 <li><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
                 <li><a href="#" target="_self" rel="next">CONTATO</a></li>
