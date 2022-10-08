@@ -10,20 +10,38 @@ $senha_cad = $_POST['senha_cad'];
 $entrar = $_POST['entrar'];
 
 if(isset($entrar)){
-  $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario_cad'";
-  $result = $conn->query($sql);
+  if(isset($usuario_cad) && isset($nomeCompleto) && isset($endereco) && isset($telefone) && isset($email) && isset($senha_cad)){
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario_cad'";
+    $result = $conn->query($sql);
 
-  if ($result->num_rows == 0) {
-    $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario_cad', '$senha_cad'); 
-    INSERT INTO info_users (nomeCompleto, endereco, telefone, email) VALUES ('$nomeCompleto', '$endereco', '$telefone', '$email');";
+    if ($result->num_rows == 0) {
+      $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario_cad', '$senha_cad');";
+      $sql1 = "INSERT INTO info_users (nomeCompleto, endereco, telefone, email) VALUES ('$nomeCompleto', '$endereco', '$telefone', '$email');";
 
-    if (mysqli_query($conn, $sql)) {
-      header("location: ../view/login.php");
-    } else {
-      header("location: ../view/cadastrar.php");
+      if ($conn->query($sql) === TRUE && $conn->query($sql1)) {
+        header("location: ../view/login.php");
+      } else {
+        header("location: ../view/cadastrar.php");
+      }
+    }else{
+?>
+
+    <div>
+      <p>Já existe usuario com esse nome.</p>
+      <a href="../view/cadastrar.php">Tentar fazer o cadastro novamente</a>
+    </div>
+
+<?php
     }
   }else{
-    header('location: ../view/cadastrar.php');
+?>
+
+    <div>
+      <p>Você não inseriu as informações por completo.</p>
+      <a href="../view/cadastrar.php">Tentar fazer o cadastro novamente</a>
+    </div>
+
+<?php
   }
 }else{
   header('location: ../index.php');
