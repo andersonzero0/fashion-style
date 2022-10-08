@@ -13,7 +13,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
+                <li><a href="#" target="_self" rel="next">PEDIDOS</a></li>
                 <li><a href="login.php" target="_self" rel="next">LOGIN</a></li>
                 <li><a href="cadastrar.php" target="_self" rel="next" id="botao">CADASTRAR</a></li>
                 <li><a href="#" target="_self" rel="next">CONTATO</a></li>
@@ -24,7 +24,7 @@
         <div id="cadastro-box">
             <form action="../controller/cadastro.php" method="post" id="form-cadastro">
                 <fieldset class="campo">
-                    <legend>Identificação do Usuário</legend>
+                    <legend>Indentificação do Usuário</legend>
                     <label for="usuario_cad" id="etiqueta1">USUÁRIO:</label>
                     <input type="text" name="usuario_cad" id="usuario_cad" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:" required>
                     <label for="senha_cad" id="etiqueta2">SENHA:</label>
@@ -38,6 +38,9 @@
                     <legend>Logradouro</legend>
                     <label for="endereco" id="etiqueta5">ENDEREÇO:</label>
                     <input type="text" name="endereco" id="endereco" size="60" placeholder="Rua, Avenida, Esquina, Travessa" required>
+                </fieldset>
+                <fieldset class="campo">
+                    <legend>Contato</legend>
                     <label for="telefone" id="etiqueta6">TELEFONE:</label>
                     <input type="tel" name="telefone" id="telefone" size="60" placeholder="Informe o seu número de telefone" required>
                 </fieldset>
