@@ -24,7 +24,7 @@
         <div id="cadastro-box">
             <form action="../controller/cadastro.php" method="post" id="form-cadastro">
                 <fieldset class="campo">
-                    <legend>Indentificação do Usuário</legend>
+                    <legend>Identificação do Usuário</legend>
                     <label for="usuario_cad" id="etiqueta1">USUÁRIO:</label>
                     <input type="text" name="usuario_cad" id="usuario_cad" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:" required>
                     <label for="senha_cad" id="etiqueta2">SENHA:</label>
