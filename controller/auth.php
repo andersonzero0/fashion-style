@@ -13,7 +13,7 @@ $sql1 = "SELECT * FROM usuarios WHERE usuario = 'admin'";
 $result1 = $conn->query($sql1);
 
 if(isset($entrar)){
-    if(!isset($_SESSION['token_auth']) && !isset($_SESSION['token_authAdmin'])){
+    if(empty($_SESSION['token_auth']) && empty($_SESSION['token_authAdmin'])){
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $row1 = $result1->fetch_assoc();
@@ -26,14 +26,36 @@ if(isset($entrar)){
                 $_SESSION['token_auth'] = $usuario;
                 header("location: redirect.php");
             }else{
-                header("location: ../view/login.php");
-            }
+?>
 
+                <div>
+                    <p>Usuário e/ou senha incorretas</p>
+                    <a href="../view/login.php">Tente fazer login novamente</a>
+                </div>
+
+<?php
+            }
         }else{
-            header("location: ../view/login.php");
+?>
+
+            <div>
+                <p>Usuário não encontrado.</p>
+                <a href="../view/login.php">Tente fazer login novamente</a>
+            </div>
+
+<?php
         }
     }else{
-        header('location: ../view/index.php');
+?>
+
+        <div>
+            <p>Você já fez login. Saia para dessa conta e faça o login novamente.</p>
+            <a href="../index.php">Pagina Inicial</a>
+        </div>
+
+<?php
     }
+}else{
+    header('location: ../index.php');
 }
 ?>

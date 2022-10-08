@@ -24,7 +24,16 @@ $result = $conn->query($sql);
 </head>
 <body>
     <header>
-
+        <?php
+            if(isset($_SESSION['token_auth']) || isset($_SESSION['token_authAdmin'])){
+                echo 1;
+            }else{
+                echo 0;
+            }
+        ?>
+        <a href="controller/exit.php">exit</a>
+        <a href="view/login.php">login</a>
+        <a href="view/cadastrar.php">cadastrar</a>
     </header>
 
     <main>
