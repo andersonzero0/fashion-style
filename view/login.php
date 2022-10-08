@@ -14,6 +14,10 @@
         <div class="logo">
             <a href="../index.php" target="_self" rel="next">Fashion Style</a>
         </div>
+<?php
+    if(empty($_SESSION['token_auth']) && empty($_SESSION['token_authAdmin'])){
+?>
+        <!--SE NÃO HÁ LOGIN-->
         <div class="menu">
             <ul>
                 <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
@@ -22,6 +26,21 @@
                 <li><a href="#" target="_self" rel="next">CONTATO</a></li>
             </ul>
         </div>
+<?php
+    }else{
+?>
+        <!--SE JA HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
+                <li><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
+                <li><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+                <li><a href="#" target="_self" rel="next">CONTATO</a></li>
+            </ul>
+        </div>
+<?php
+    }
+?>
     </nav>
     <main>
         <!-- *não altere o valores dos atributos, pode criar classes-->
