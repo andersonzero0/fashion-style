@@ -60,7 +60,9 @@ $result = $conn->query($sql);
                     <p><?=$row['valor']?></p>
                 </div>
                 <form action="controller/verif-pedido.php" method="post">
+                    <!--ocultar esse elemento-->
                     <input type="text" value="<?=$row['id'];?>" name="id">
+
                     <input id="comprar" type="submit" value="comprar" name="comprar">
                 </form>
         </div>

@@ -100,8 +100,8 @@ if(!isset($_SESSION['token_authAdmin'])){
                     default:
                         $estado = 'EM ESPERA';
                 }
-                $id = $row1['id'];
-                $sql2 = "UPDATE pedidos SET estado = '$estado' WHERE id = '$id'";
+                $id = $_GET['id'];
+                $sql2 = "UPDATE pedidos SET estado = '$estado' WHERE id1 = '$id'";
                 $conn->query($sql2);
                 header('location: ../../controller/update.php');
             }
@@ -125,6 +125,9 @@ if(!isset($_SESSION['token_authAdmin'])){
                     <td><?=$row1['email']?></td>
                     <td>
                         <form action="index.php" method="get">
+                            <!--ocultar esse elemento-->
+                            <input type="text" name="id" id="id" value="<?=$row1['id1']?>">
+
                             <select name="estado" id="estado">
                                 <option value="espera" <?php if($row1['estado'] == 'EM ESPERA'){ ?> selected <?php } ?>>EM ESPERA</option>
                                 <option value="caminho" <?php if($row1['estado'] == 'A CAMINHO'){ ?> selected <?php } ?>>A CAMINHO</option>
@@ -143,10 +146,6 @@ if(!isset($_SESSION['token_authAdmin'])){
         echo "Não há pedidos";
     }
 ?>
-
-        <div id="excluir-produtos">
-            
-        </div>
     </main>
 
     <footer>
