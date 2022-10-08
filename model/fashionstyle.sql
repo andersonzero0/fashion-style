@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 -- Banco de dados: `fashionstyle`
 --
 
+CREATE DATABASE fashionstyle;
+USE fashionstyle;
+
 -- --------------------------------------------------------
 
 --

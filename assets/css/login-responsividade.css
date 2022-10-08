@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* Smartphones (600px para baixo) */
+@media only screen and (max-width: 600px) {
+    
+}
+/* Dispostivos um pouco maiores, mas ainda pequenos (Pequenos Tablets) */
+@media only screen and (min-width: 600px) {
+    
+}
+/* Dispostivos Médios (Tablets deitados) */
+@media only screen and (min-width: 768px) {
+    #login-box {
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+    }
+}
+/* Dispositivos Largos (laptops/desktops) */
+@media only screen and (min-width: 992px) {
+    
+}
+/* Super Largos (Telas maiores laptops, desktops) */
+@media only screen and (min-width: 1200px) {
+    
+}
