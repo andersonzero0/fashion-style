@@ -1,18 +1,42 @@
 @charset "UTF-8";
 /* Smartphones (600px para baixo) */
 @media only screen and (max-width: 600px) {
-    
+    #login-box {
+        width: 90%;
+        margin: 2.5vh 5%;
+    }
+    .logo {
+        width: 50%;
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .menu {
+        width: 50%;
+    }
 }
 /* Dispostivos um pouco maiores, mas ainda pequenos (Pequenos Tablets) */
 @media only screen and (min-width: 600px) {
-    
+    .menu {
+        width: 60%;
+    }
+    .logo {
+        width: 40%;
+    }
+    #login-box {
+        width: 90vw;
+        margin: 2.5vw 5vw;
+    }
 }
 /* Dispostivos Médios (Tablets deitados) */
 @media only screen and (min-width: 768px) {
     #login-box {
         width: 70%;
-        margin: auto;
-        margin-top: 5%;
+        margin-left: 15%;
+        margin-left: 15%;
     }
 }
 /* Dispositivos Largos (laptops/desktops) */

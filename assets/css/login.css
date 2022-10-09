@@ -21,8 +21,8 @@ body {
 }
 .nav-bar {
     background-color: var(--cor1);
-    height: 20vh;
-    width: 99.8vw;
+    height: 25vh;
+    width: 98.7vw;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -30,7 +30,7 @@ body {
     align-items: stretch;
 }
 .logo {
-    flex: 50%;
+    width: 50%;
     margin-left: 5%;
     display: flex;
     flex-direction: row;
@@ -45,11 +45,17 @@ body {
     font-family: var(--font-logo);
 }
 .menu {
-    flex: 40%;
+    width: 40%;
     margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .menu ul {
     height: 100%;
+    width: 100%;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -57,16 +63,16 @@ body {
     justify-content: space-evenly;
     align-items: center;
 }
-.menu ul li a {
+.menu ul .li a {
     color: white;
     font-weight: bold;
     text-decoration: none;
-    padding: 20px 16px;
+    padding: 20px 20px;
     font-size: 20px;
     background-color: var(--cor2);
     border-radius: 5px;
 }
-.menu ul li a:hover {
+.menu ul .li a:hover {
     color: var(--cor2);
     background-color: var(--cor5);
 }
@@ -76,15 +82,17 @@ body {
     color: var(--cor1);
     border-radius: 5px;
 }
+#botao:hover {
+    background-color: var(--cor5);
+    color: var(--cor2);
+}
 #login-box {
     border-radius: 5px;
     border: 3px solid black;
     box-shadow: 5px 5px 5px var(--cor3);
     height: 70vh;
     width: 50%;
-    margin-top: 20px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: 2.5vh 25% 2.5vh 25%;
 }
 #form-login {
     height: 100%;
@@ -139,4 +147,40 @@ body {
     border-radius: 5px;
     padding: 12px 20px;
     margin-top: 20px;
+}
+#icon-user {
+    height: 75px;
+    width: 75px;
+}
+.dropdown-container {
+    display: none;
+    background-color: rgb(238, 232, 232);
+    width: 350px;
+    height: 200px;
+    position: fixed;
+    right: 75px;
+    border-radius: 5px;
+    font-family: var(--font-input);
+    font-weight: bolder;
+    border: 5px solid var(--cor2);
+}
+.dropdown-container a button {
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    font-family: var(--font-input);
+}
+.id-username {
+    font-size: 22px;
+}
+.id-user-email {
+    margin: 10px;
+}
+.li-user:hover .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
