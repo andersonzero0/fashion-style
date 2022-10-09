@@ -147,6 +147,7 @@ body {
     border-radius: 5px;
     padding: 12px 20px;
     margin-top: 20px;
+    cursor: pointer;
 }
 #icon-user {
     height: 75px;
@@ -170,6 +171,7 @@ body {
     background-color: red;
     color: white;
     font-family: var(--font-input);
+    cursor: pointer;
 }
 .id-username {
     font-size: 22px;
