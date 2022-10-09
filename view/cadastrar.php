@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,13 +14,50 @@
         <div class="logo">
             <a href="../index.php" target="_self" rel="next">Fashion Style</a>
         </div>
+<?php
+    if(empty($_SESSION['token_auth']) && empty($_SESSION['token_authAdmin'])){
+?>
+        <!--SE NÃO HÁ LOGIN-->
         <div class="menu">
             <ul>
-                <li><a href="login.php" target="_self" rel="next">LOGIN</a></li>
-                <li><a href="cadastrar.php" target="_self" rel="next" id="botao">CADASTRAR</a></li>
+                <li class="li"><a href="login.php" target="_self" rel="next">LOGIN</a></li>
+                <li class="li"><a href="cadastrar.php" target="_self" rel="next" id="botao">CADASTRAR</a></li>
             </ul>
         </div>
+<?php
+    }else{
+        require "../model/connect-db.php";
+        if(isset($_SESSION['token_auth'])) {
+            $user = $_SESSION['token_auth'];
+            $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }elseif(isset($_SESSION['token_authAdmin'])){
+            $user = 'admin';
+            $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }
+
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+?>
+        <!--SE JA HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li class="li"><a href="meuspedidos.php" target="_self" rel="next">MEUS PEDIDOS</a></li>
+                <li class="li-user">
+                    <a href="javascript:void(0)" class="dropbtn"><img src="../assets/img/icon-user.png" alt="Ícone de usuário" id="icon-user"></a>
+                    <div class="dropdown-container">
+                        <p class="id-username"><?=$row['nomeCompleto']?></p>
+                        <p class="id-user-email"><?=$row['email']?></p>
+                        <a href="../controller/exit.php"><button>SAIR</button></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<?php
+    }
+?>
     </nav>
+
+
     <main>
         <div id="cadastro-box">
             <form action="../controller/cadastro.php" method="post" id="form-cadastro">
