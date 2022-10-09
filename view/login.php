@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/login.css" type="text/css">
-    <!-- <link rel="stylesheet" href="../assets/css/login-responsividade.css" type="text/css"> -->
+    <link rel="stylesheet" href="../assets/css/login-responsividade.css" type="text/css">
     <title>Login - Fashion Style</title>
 </head>
 <body>
@@ -21,8 +21,8 @@
         <!--SE NÃO HÁ LOGIN-->
         <div class="menu">
             <ul>
-                <li><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
-                <li><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+                <li class="li"><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
+                <li class="li"><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
             </ul>
         </div>
 <?php
@@ -31,9 +31,15 @@
         <!--SE JA HÁ LOGIN-->
         <div class="menu">
             <ul>
-                <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
-                <li><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
-                <li><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+                <li class="li"><a href="meuspedidos.php" target="_self" rel="next">MEUS PEDIDOS</a></li>
+                <li class="li-user">
+                    <a href="javascript:void(0)" class="dropbtn"><img src="../assets/img/icon-user.png" alt="Ícone de usuário" id="icon-user"></a>
+                    <div class="dropdown-container">
+                        <p class="id-username">Gabriel da Silva Pires</p>
+                        <p class="id-user-email">gabrielpiresdecafé@gmail.com</p>
+                        <a href="../controller/exit.php"><button>SAIR</button></a>
+                    </div>
+                </li>
             </ul>
         </div>
 <?php

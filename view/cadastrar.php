@@ -13,10 +13,8 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="meuspedidos.php" target="_self" rel="next">PEDIDOS</a></li>
                 <li><a href="login.php" target="_self" rel="next">LOGIN</a></li>
                 <li><a href="cadastrar.php" target="_self" rel="next" id="botao">CADASTRAR</a></li>
-                <li><a href="#" target="_self" rel="next">CONTATO</a></li>
             </ul>
         </div>
     </nav>
