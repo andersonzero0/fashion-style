@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/cadastrar.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/cadastrar-responsividade.css" type="text/css">
     <title>Cadastrar - Fashion Style</title>
 </head>
 <body>
