@@ -1,11 +1,6 @@
 @charset "UTF-8";
 /* Smartphones (600px para baixo) */
 @media only screen and (max-width: 600px) {
-    #login-box {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
     .logo {
         width: 40%;
         margin: 0px;

@@ -12,7 +12,7 @@
     --cor5: #FFE070;
 }
 
-/*   NAV-BAR  */
+/*   NAV-BAR   */
 * {
     font-family: var(--font-geral);
     box-sizing: border-box;
@@ -128,75 +128,43 @@ body {
     align-items: center;
 }
 
-
-/*  MAIN  */
-#cadastro-box {
-    margin-top: 150px;
-    border-radius: 5px;
-    border: 3px solid black;
-    box-shadow: 5px 5px 5px var(--cor3);
-    height: 730px;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+/* Main */
+.main {
+    margin-top: 125px;
 }
-#form-cadastro {
-    height: 100%;
+.search-box {
+    height: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
-.campo legend {
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
+#search {
+    width: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 30px;
+    border: 2px solid black;
+}
+#procurar {
+    height: 30px;
+    background-color: var(--cor1);
+    color: var(--cor3);
     font-weight: bolder;
-}
-.campo {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 3px solid black;
-    margin: 10px;
-    padding: 20px;
-}
-#etiqueta1 {
-    margin-right: 66%;
-}
-#etiqueta2 {
-    margin-right: 69%;
-}
-#etiqueta3 {
-    margin-right: 69%;
-}
-#etiqueta4 {
-    margin-right: 70%;
-}
-#etiqueta5 {
-    margin-right: 62%;
-}
-#etiqueta6 {
-    margin-right: 64%;
-}
-.campo input {
-    width: 80%;
-    font-family: var(--font-input);
-    font-size: 16px;
-    margin: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-#form-button {
-    background-color: var(--cor4);
-    color: var(--cor1);
-    font-weight: bolder;
-    border: 1px solid greenyellow;
-    border-radius: 5px;
-    padding: 12px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1.5px;
     cursor: pointer;
+}
+.material-symbols-outlined {
+    background-color: var(--cor1);
+    color: var(--cor3);
+    padding: 3px;
+}
+.produtos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 1px solid black;
 }
