@@ -63,6 +63,8 @@ $result = $conn->query($sql);
                     <div class="dropdown-container">
                         <p class="id-username"><?=$row1['nomeCompleto']?></p>
                         <p class="id-user-email"><?=$row1['email']?></p>
+                        <a href="view/login.php">LOGIN</a>
+                        <a href="view/cadastrar.php">CADASTRAR</a>
                         <a href="controller/exit.php"><button>SAIR</button></a>
                     </div>
                 </li>

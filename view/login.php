@@ -48,6 +48,7 @@
                     <div class="dropdown-container">
                         <p class="id-username"><?=$row['nomeCompleto']?></p>
                         <p class="id-user-email"><?=$row['email']?></p>
+                        <a href="cadastrar.php">CADASTRAR</a>
                         <a href="../controller/exit.php"><button>SAIR</button></a>
                     </div>
                 </li>
