@@ -23,7 +23,12 @@ if(isset($_POST['comprar'])) {
         
         if($conn->query($sql1) == TRUE){
             $_SESSION['compRealizd'] = $client; 
-            header('location: ../view/comprarealizada.php');
+?>
+    <div>
+        <p>Compra Realizada!</p>
+        <a href="../index.php">Continuar com as Compras</a>
+    </div>
+<?php
         }
 
     }else{
