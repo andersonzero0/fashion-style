@@ -23,7 +23,7 @@ body {
 }
 .nav-bar {
     background-color: var(--cor1);
-    height: 25vh;
+    height: 20vh;
     width: 98.7vw;
     display: flex;
     flex-direction: row;
@@ -188,8 +188,17 @@ body {
     font-family: var(--font-input);
     font-size: 16px;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid black;
+    padding-left: 10px;
+}
+.icone-input {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 #form-button {
     background-color: var(--cor4);

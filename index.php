@@ -92,20 +92,20 @@ $result = $conn->query($sql);
                     <img src="assets/img/uploads/<?=$row['caminhoIMG']?>" alt="imgoi">
                 </div>
 
-                <div class="nome-produto">
-                    <p><?=$row['nome']?></p>
+                <div class="informacoes-produto">
+                    <div class="nome-produto">
+                        <p><?=$row['nome']?></p>
+                    </div>
+                    <div class="valor-produto">
+                        <p>R$<?=$row['valor']?></p>
+                    </div>
+                    <form action="controller/verif-pedido.php" method="post" class="comprar-produto">
+                        <!--ocultar esse elemento-->
+                        <input type="text" value="<?=$row['id'];?>" name="id" style="display: none;">
+                        <input id="comprar" type="submit" value="COMPRAR" name="comprar">
+                    </form>
                 </div>
-
-                <div class="valor-produto">
-                    <p><?=$row['valor']?></p>
-                </div>
-                <form action="controller/verif-pedido.php" method="post">
-                    <!--ocultar esse elemento-->
-                    <input type="text" value="<?=$row['id'];?>" name="id">
-
-                    <input id="comprar" type="submit" value="COMPRAR" name="comprar">
-                </form>
-        </div>
+            </div>
 <?php
             }
         }else {

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/cadastrar.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/cadastrar-responsividade.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Cadastrar - Fashion Style</title>
 </head>
 <body>
@@ -66,23 +67,41 @@
                 <fieldset class="campo">
                     <legend>Identificação do Usuário</legend>
                     <label for="usuario_cad" id="etiqueta1">USUÁRIO:</label>
-                    <input type="text" name="usuario_cad" id="usuario_cad" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined" id="icone-usuario">person</span>
+                        <input type="text" name="usuario_cad" id="usuario_cad" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:" required>
+                    </div>
                     <label for="senha_cad" id="etiqueta2">SENHA:</label>
-                    <input type="password" name="senha_cad" id="senha_cad" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined" id="icone-senha">lock</span>
+                        <input type="password" name="senha_cad" id="senha_cad" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:" required>
+                    </div>
                     <label for="email" id="etiqueta3">E-MAIL:</label>
-                    <input type="email" name="email" id="email" placeholder="Informe o seu endereço de e-mail:" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined" id="icone-senha">mail</span>
+                        <input type="email" name="email" id="email" placeholder="Informe o seu endereço de e-mail:" required>
+                    </div>
                     <label for="nomeCompleto" id="etiqueta4">NOME:</label>
-                    <input type="text" name="nomeCompleto" id="nomeCompleto" size="60" minlength="4" maxlength="80" placeholder="Informe o seu nome completo:" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined">badge</span>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" size="60" minlength="4" maxlength="80" placeholder="Informe o seu nome completo:" required>
+                    </div>
                 </fieldset>
                 <fieldset class="campo">
                     <legend>Logradouro</legend>
                     <label for="endereco" id="etiqueta5">ENDEREÇO:</label>
-                    <input type="text" name="endereco" id="endereco" size="60" placeholder="Rua, Avenida, Esquina, Travessa" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <input type="text" name="endereco" id="endereco" size="60" placeholder="Rua, Avenida, Esquina, Travessa" required>
+                    </div>
                 </fieldset>
                 <fieldset class="campo">
                     <legend>Contato</legend>
                     <label for="telefone" id="etiqueta6">TELEFONE:</label>
-                    <input type="tel" name="telefone" id="telefone" size="60" placeholder="Informe o seu número de telefone" required>
+                    <div class="icone-input">
+                        <span class="material-symbols-outlined">call</span>
+                        <input type="tel" name="telefone" id="telefone" size="60" placeholder="Informe o seu número de telefone" required>
+                    </div>
                 </fieldset>
                 <input type="submit" name="entrar" value="CADASTRAR" id="form-button">
             </form>
