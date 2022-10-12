@@ -23,7 +23,7 @@ body {
 }
 .nav-bar {
     background-color: var(--cor1);
-    height: 20vh;
+    height: 25vh;
     width: 98.7vw;
     display: flex;
     flex-direction: row;
