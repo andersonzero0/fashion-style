@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+:root {
+    --font-logo: 'Oswald', sans-serif;
+    --font-geral: 'Roboto', sans-serif;
+    --font-input: 'Mukta', sans-serif;
+    --cor1: #0D0D0D;
+    --cor2: #595959;
+    --cor3: #BFBFBF;
+    --cor4: #F3C522;
+    --cor5: #FFE070;
+}
+
+/*   NAV-BAR   */
+* {
+    font-family: var(--font-input);
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.nav-bar {
+    background-color: var(--cor1);
+    height: 20vh;
+    width: 98.7vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: fixed;
+    top: 0px;
+}
+.logo {
+    width: 50%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo a {
+    text-decoration: none;
+    font-size: 34px;
+    color: #FFFFFF;
+    font-family: var(--font-logo);
+}
+.menu {
+    width: 40%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu ul {
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menu ul .li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px 20px;
+    font-size: 20px;
+    background-color: var(--cor2);
+    border-radius: 5px;
+}
+.menu ul .li a:hover {
+    color: black;
+    background-color: var(--cor5);
+}
+#botao {
+    background-color: var(--cor4);
+    font-weight: bolder;
+    color: var(--cor1);
+    border-radius: 5px;
+}
+#botao:hover {
+    background-color: var(--cor5);
+    color: var(--cor2);
+}
+#icon-user {
+    height: 75px;
+    width: 75px;
+}
+.dropdown-container {
+    display: none;
+    background-color: rgb(238, 232, 232);
+    width: 350px;
+    height: 200px;
+    position: fixed;
+    right: 75px;
+    border-radius: 5px;
+    font-family: var(--font-input);
+    font-weight: bolder;
+    border: 5px solid var(--cor2);
+}
+.dropdown-container a button {
+    font-weight: bolder;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    font-family: var(--font-input);
+    cursor: pointer;
+}
+.id-username {
+    font-size: 22px;
+}
+.id-user-email {
+    margin: 10px;
+}
+.li-user:hover .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+/* Main */
+.registrar-produto {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    width: 400px;
+    margin: 150px auto 20px auto;
+    background-color: var(--cor2);
+    border-radius: 5px;
+}
+.img-product {
+    background-color: var(--cor5);
+    color: var(--cor1);
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 3px;
+}
+.img-regP{
+    margin: 10px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.nome-produto {
+    background-color: var(--cor3);
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.nome-produto label {
+    font-weight: bolder;
+}
+.valor-produto {
+    background-color: var(--cor3);
+    padding: 10px;
+    border-radius: 5px;
+}
+.valor-produto label {
+    font-weight: bolder;
+}
+#botao-registrar {
+    margin-top: 10px;
+    background-color: var(--cor4);
+    color: var(--cor1);
+    font-weight: bolder;
+    height: 30px;
+    width: 100px;
+}

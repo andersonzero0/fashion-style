@@ -8,79 +8,90 @@ if(!isset($_SESSION['token_authAdmin'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/admin.css" type="text/css">
     <title>Admin - Fashion Style</title>
 </head>
 <body>    
-    <header>
+    <nav class="nav-bar">
+        <div class="logo">
+            <a href="../../index.php" target="_self" rel="next">Fashion Style</a>
+        </div>
+<?php
+    if(empty($_SESSION['token_auth']) && empty($_SESSION['token_authAdmin'])){
+?>
+        <!--SE NÃO HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li class="li"><a href="../login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
+                <li class="li"><a href="../cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+            </ul>
+        </div>
+<?php
+    }else{
+        require "../../model/connect-db.php";
+        if(isset($_SESSION['token_auth'])) {
+            $user = $_SESSION['token_auth'];
+            $sql3 = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }elseif(isset($_SESSION['token_authAdmin'])){
+            $user = 'admin';
+            $sql3 = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }
 
-    </header>
-
+        $result3 = $conn->query($sql3);
+        $row3 = $result3->fetch_assoc();
+?>
+        <!--SE JA HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li class="li-user">
+                    <a href="javascript:void(0)" class="dropbtn"><img src="../../assets/img/icon-user.png" alt="Ícone de usuário" id="icon-user"></a>
+                    <div class="dropdown-container">
+                        <p class="id-username"><?=$row3['nomeCompleto']?></p>
+                        <p class="id-user-email"><?=$row3['email']?></p>
+                        <a href="../login.php">LOGIN</a>
+                        <a href="../cadastrar.php">CADASTRAR</a>
+                        <a href="../../controller/exit.php"><button>SAIR</button></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<?php
+    }
+?>
+    </nav>
     <main>
-        <a href="index.php"><button>ATUALIZAR</button></a>
-        <div id="registrar-produto">
-            <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data">
+        <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data" class="registrar-produto">
 
-                <div id="img-regP">
-                    <input type="file" name="img-product" id="img-product">
+            <div class="img-regP">
+                <input type="file" name="img-product" class="img-product">
+            </div>
+
+            <div class="info">
+
+                <div class="nome-produto">
+                    <label for="nome-p">NOME:</label>
+                    <input type="text" name="nome-p" id="nome-p">
                 </div>
 
-                <div id="info">
-
-                    <div id="nome-produto">
-                        <label for="nome-p">NOME:</label>
-                        <input type="text" name="nome-p" id="nome-p">
-                    </div>
-
-                    <div id="valor-produto">
-                        <label for="valor-p">VALOR:</label>
-                        <input type="text" name="valor-p" id="valor-p">
-                    </div>
-
+                <div class="valor-produto">
+                    <label for="valor-p">VALOR:</label>
+                    <input type="text" name="valor-p" id="valor-p">
                 </div>
 
-                <input type="submit" value="REGISTRAR">
-            </form>
-        </div>
-    <hr>
-        <div id="produtos">
-<?php
-            $sql = "SELECT * FROM produtos";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-?>
-                    <div id="produto">
-                        <div id="img">
-                            <img src="../../assets/img/uploads/<?=$row['caminhoIMG']?>" alt="imgoi">
-                        </div>
+            </div>
 
-                        <div id="nome-pro">
-                            <p><?=$row['nome']?></p>
-                        </div>
-
-                        <div id="valor-pro">
-                            <p><?=$row['valor']?></p>
-                        </div>
-                    </div>
-<?php
-                }
-              } else {
-                echo "Não há produtos";
-              }
-?>
-        </div>
-
-        <hr>
+            <input type="submit" value="REGISTRAR" id="botao-registrar">
+        </form>
 <?php
     $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
     
     $result1 = $conn->query($sql1);
-    if ($result->num_rows > 0) {
+    if ($result1->num_rows > 0) {
         while($row1 = $result1->fetch_assoc()) {
             if(isset($_GET['atualizar'])){
                 $estado = $_GET['estado'];
