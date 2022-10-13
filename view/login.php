@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/login.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/login-responsividade.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Login - Fashion Style</title>
 </head>
 <body>
@@ -65,12 +66,17 @@
                 <fieldset class="campo">
                     <div class="container-controls">
                         <label for="usuario" class="etiqueta" id="label-usuario">USUÁRIO:</label>
-                        <input type="text" name="usuario" id="usuario" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:">
+                        <div class="icone-input">
+                            <span class="material-symbols-outlined" id="icone-usuario">person</span>
+                            <input type="text" name="usuario" id="usuario" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:">
+                        </div>
                     </div>
                     <div class="container-controls">
                         <label for="senha" class="etiqueta" id="label-senha">SENHA:</label>
-                        <input type="password" name="senha" id="senha" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:">
-                    </div>
+                        <div class="icone-input">
+                            <span class="material-symbols-outlined" id="icone-senha">lock</span>
+                            <input type="password" name="senha" id="senha" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:">
+                        </div>
                 </fieldset>
                 <input type="submit" name="entrar" value="ENTRAR" id="form-button">
             </form>
