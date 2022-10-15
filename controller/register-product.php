@@ -52,9 +52,10 @@ if ($uploadOk == 0) {
 
 $nome_p = $_POST['nome-p'];
 $valor_p = (double)$_POST['valor-p'];
+$estoque_p = $_POST['estoque-p'];
 
-$sql = "INSERT INTO produtos (nome, valor, caminhoIMG)
-VALUES ('$nome_p', $valor_p, '$img_local')";
+$sql = "INSERT INTO produtos (nome, valor, caminhoIMG, estoque)
+VALUES ('$nome_p', $valor_p, '$img_local', $estoque_p)";
 
 if ($conn->query($sql) === TRUE) {
     header('location: ../view/admin/');

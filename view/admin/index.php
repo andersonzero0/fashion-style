@@ -1,9 +1,10 @@
 <?php
 session_start();
 include "../../model/connect-db.php";
-if(!isset($_SESSION['token_authAdmin'])){
+if(empty($_SESSION['token_authAdmin'])){
     header("location: ../../index.php");
 }else{
+    header('Refresh: 60;')
 ?>
 
 
@@ -14,6 +15,7 @@ if(!isset($_SESSION['token_authAdmin'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/admin.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Admin - Fashion Style</title>
 </head>
 <body>    
@@ -81,6 +83,11 @@ if(!isset($_SESSION['token_authAdmin'])){
                 <div class="valor-produto">
                     <label for="valor-p">VALOR:</label>
                     <input type="text" name="valor-p" id="valor-p">
+                </div>
+
+                <div class="estoque-produto">
+                    <label for="estoque-p">ESTOQUE:</label>
+                    <input type="number" name="estoque-p" id="estoque-p">
                 </div>
 
             </div>
@@ -159,6 +166,76 @@ if(!isset($_SESSION['token_authAdmin'])){
     }
     }else{
         echo "Não há pedidos";
+    }
+    $sql4 = "SELECT * FROM produtos";
+    $result4 = $conn->query($sql4);
+    if($result4->num_rows > 0){
+?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>/</th>
+                </tr>
+            </thead>
+            <tbody>
+<?php
+while($row4 = $result4->fetch_assoc()){
+    if(isset($_GET['save'])){
+        $nome_p_edit = $_GET['nome'];
+        $valor_p_edit = $_GET['valor'];
+        $estoque_p_edit = $_GET['estoque'];
+        $id_p_edit = $_GET['id'];
+        $sql5 = "UPDATE produtos SET nome = '$nome_p_edit', valor = '$valor_p_edit', estoque = '$estoque_p_edit' WHERE id = $id_p_edit";
+        $conn->query($sql5);
+        header('location: index.php');
+    }
+    if(isset($_GET['btnexcluir'])){
+        $id_excluir = $_GET['id_excluir'];
+        $sql6 = "DELETE FROM produtos WHERE id = $id_excluir";
+        $conn->query($sql6);
+        header('location: index.php');
+    }
+?>
+                <tr>
+                    <td><?=$row4['nome']?></td>
+                    <td><?=$row4['valor']?></td>
+                    <td><?=$row4['estoque']?></td>
+                    <td><span class="material-symbols-outlined">edit</span></td>
+                </tr>
+                <div>
+                    <span class="material-symbols-outlined">close</span>
+                    <form action="index.php" method="get">
+                        <legend>Editar Produto</legend>
+
+                        <label for="nome">NOME:</label>
+                        <input type="text" name="nome" id="nome">
+
+                        <label for="valor">VALOR:</label>
+                        <input type="text" name="valor" id="valor">
+
+                        <label for="estoque">ESTOQUE:</label>
+                        <input type="number" name="estoque" id="estoque">
+
+                        <input style="display: none;" type="number" name="id" id="id" value="<?=$row4['id']?>">
+                        
+                        <button type="submit" name="save"><span class="material-symbols-outlined">save</span></button>
+                    </form>
+                    <form action="index.php" method="get">
+                        <input style="display: none;" type="number" value="<?=$row4['id']?>" name="id_excluir" id="id_excluir">
+                        <button type="submit" name="btnexcluir"><span class="material-symbols-outlined">delete</span></button>
+                    </form>
+                </div>
+<?php
+}
+?>
+            </tbody>
+        </table>
+<?php
+    }else{
+        echo "Não há produtos";
     }
 ?>
     </main>
