@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Out-2022 às 15:00
+-- Tempo de geração: 15-Out-2022 às 14:55
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE fashionstyle;
 USE fashionstyle;
-
 -- --------------------------------------------------------
 
 --
@@ -43,7 +42,7 @@ CREATE TABLE `info_users` (
 --
 
 INSERT INTO `info_users` (`id`, `nomeCompleto`, `endereco`, `telefone`, `email`) VALUES
-(1, 'admin', 'null', '0123456789', 'admin@fafshion'),
+(1, 'admin', 'null', '0123456789', 'admin@fashion'),
 (2, 'usuario test', 'null', '0987654321', 'usuario@fashion'),
 (5, 'Test Usuario2', 'A, A, A, A', '999999999999', 'usuario2@style');
 
@@ -54,9 +53,9 @@ INSERT INTO `info_users` (`id`, `nomeCompleto`, `endereco`, `telefone`, `email`)
 --
 
 CREATE TABLE `pedidos` (
-  `id1` int(6) NOT NULL,
-  `client` varchar(30) DEFAULT NULL,
-  `produto` varchar(30) DEFAULT NULL,
+  `id1` int(6) UNSIGNED NOT NULL,
+  `client` varchar(20) DEFAULT NULL,
+  `produto` varchar(20) DEFAULT NULL,
   `dataPEDIDO` date DEFAULT NULL,
   `horaPEDIDO` time DEFAULT NULL,
   `estado` varchar(15) DEFAULT NULL
@@ -67,10 +66,9 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id1`, `client`, `produto`, `dataPEDIDO`, `horaPEDIDO`, `estado`) VALUES
-(1, 'usuario1', 'Blusa Preta', '2022-10-01', '18:12:55', 'A CAMINHO'),
-(7, 'usuario1', 'Blusa Preta', '2022-10-01', '18:28:19', 'EM ESPERA'),
-(8, 'usuario1', 'Blusa Preta', '2022-10-07', '22:19:30', 'RECUSADO'),
-(9, 'usuario2', 'Sapato Nike', '2022-10-07', '22:23:52', 'EM ESPERA');
+(1, 'usuario1', 'Sapato Nike', '2022-10-15', '07:51:48', 'EM ESPERA'),
+(2, 'usuario1', 'Sapato Nike', '2022-10-15', '07:51:52', 'EM ESPERA'),
+(3, 'usuario1', 'Sapato Nike', '2022-10-15', '07:51:54', 'EM ESPERA');
 
 -- --------------------------------------------------------
 
@@ -151,6 +149,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `info_users`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id1` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
