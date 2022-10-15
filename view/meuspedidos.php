@@ -85,11 +85,23 @@ require "../model/connect-db.php";
 
                 }
 ?>
-        <div>
-            <img src="../assets/img/uploads/<?=$row1['caminhoIMG']?>" alt="Imagem">
-            <p id="produto"><?=$row1['produto']?></p>
-            <p id="data"><?=$row1['dataPEDIDO']?></p>
-            <p style="background-color: <?=$color?>;" class="estado"><?=$estado?></p>
+        <div class="pedido">
+            <div class="list-itens">
+                <div class="img">
+                    <img src="../assets/img/uploads/<?=$row1['caminhoIMG']?>" alt="Imagem">
+                </div>
+                <div class="informacoes-produto">
+                    <div class="nome-produto">
+                        <p id="produto"><?=$row1['produto']?></p>
+                    </div>
+                    <div class="data-pedido">
+                        <p id="data"><?=$row1['dataPEDIDO']?></p>
+                    </div>
+                    <div class="estado">
+                        <p style="background-color: <?=$color?>;"><?=$estado?></p>
+                    </div>
+                </div>
+            </div>
         </div>
 <?php
             }

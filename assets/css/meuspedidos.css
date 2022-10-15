@@ -23,7 +23,7 @@ body {
 }
 .nav-bar {
     background-color: var(--cor1);
-    height: 20vh;
+    height: 15vh;
     width: 98.7vw;
     display: flex;
     flex-direction: row;
@@ -71,7 +71,7 @@ body {
     color: white;
     font-weight: bold;
     text-decoration: none;
-    padding: 20px 20px;
+    padding: 15px 15px;
     font-size: 20px;
     background-color: var(--cor2);
     border-radius: 5px;
@@ -91,20 +91,21 @@ body {
     color: var(--cor2);
 }
 #icon-user {
-    height: 75px;
-    width: 75px;
+    height: 60px;
+    width: 60px;
 }
 .dropdown-container {
     display: none;
-    background-color: rgb(238, 232, 232);
-    width: 350px;
-    height: 200px;
+    background-image: linear-gradient(to bottom, var(--cor3), white);
+    width: 300px;
+    height: 300px;
     position: fixed;
-    right: 75px;
+    top: 80px;
+    right: 60px;
     border-radius: 5px;
     font-family: var(--font-input);
     font-weight: bolder;
-    border: 5px solid var(--cor2);
+    border: 5px solid black;
 }
 .dropdown-container a button {
     font-weight: bolder;
@@ -118,7 +119,7 @@ body {
     font-size: 22px;
 }
 .id-user-email {
-    margin: 10px;
+    margin: 3px;
 }
 .li-user:hover .dropdown-container {
     display: flex;
@@ -130,4 +131,62 @@ body {
 /* Main */
 main {
     margin-top: 125px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.pedido {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 20vw;
+    background-color: var(--cor2);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.list-itens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.img {
+    width: 55%;
+    height: 100%;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+.informacoes-produto {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#produto {
+    background-color: var(--cor5);
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bolder;
+}
+#data {
+    font-weight: bolder;
+}
+.estado p {
+    padding: 5px;
+    font-weight: bolder;
+    border-radius: 5px;
 }
