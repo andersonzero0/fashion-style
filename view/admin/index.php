@@ -267,3 +267,4 @@ unset($_SESSION['erroRegProduct']);
 <?php
 }
 ?>
+<!-- Front-End -->
