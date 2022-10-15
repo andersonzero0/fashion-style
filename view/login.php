@@ -64,6 +64,11 @@
         <div id="login-box">
             <form action="../controller/auth.php" method="post" id="form-login">
                 <fieldset class="campo">
+
+                <sub id="senhaIncorreta" style="color: red;">*Usuário e/ou Senha incorretas.</sub>
+                <sub id="userNo" style="color: red;">*Usuário não encontrado.</sub>
+                <sub id="loginFeito" style="color: red;">*Você já fez login. Saia dessa conta e faça o login novamente.</sub>
+
                     <div class="container-controls">
                         <label for="usuario" class="etiqueta" id="label-usuario">USUÁRIO:</label>
                         <div class="icone-input">
@@ -87,3 +92,37 @@
     </footer>
 </body>
 </html>
+<script>
+    var senhaIncorreta = document.getElementById('senhaIncorreta');
+    var UserNo = document.getElementById('userNo');
+    var loginFeito = document.getElementById('loginFeito');
+
+    senhaIncorreta.style.display = "none"
+    UserNo.style.display = "none"
+    loginFeito.style.display = "none"
+</script>
+
+<?php
+if(isset($_SESSION['senhaIncorreta'])){
+?>
+<script>
+    senhaIncorreta.style.display = "block"
+</script>
+<?php
+unset($_SESSION['senhaIncorreta']);
+}elseif(isset($_SESSION['userNo'])){
+?>
+<script>
+    UserNo.style.display = "block"
+</script>
+<?php
+unset($_SESSION['userNo']);
+}elseif(isset($_SESSION['loginFeito'])){
+?>
+<script>
+    loginFeito.style.display = "block"
+</script>
+<?php
+unset($_SESSION['loginFeito']);
+}
+?>

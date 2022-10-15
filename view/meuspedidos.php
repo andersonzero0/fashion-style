@@ -9,7 +9,6 @@ require "../model/connect-db.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/meuspedidos.css">
-    <script src="../assets/js/meuspedidos.js"></script>
     <title>Meus Pedidos - Fashion Style</title>
 </head>
 <body>
@@ -50,6 +49,7 @@ require "../model/connect-db.php";
                     <div class="dropdown-container">
                         <p class="id-username"><?=$row['nomeCompleto']?></p>
                         <p class="id-user-email"><?=$row['email']?></p>
+                        <a href="login.php">LOGIN</a>
                         <a href="cadastrar.php">CADASTRAR</a>
                         <a href="../controller/exit.php"><button>SAIR</button></a>
                     </div>
@@ -68,12 +68,28 @@ require "../model/connect-db.php";
         $result1 = $conn->query($sql1);
         if($result1->num_rows > 0) {
             while($row1 = $result1->fetch_assoc()) {
+                $estado = $row1['estado'];
+                switch ($estado) {
+                    case 'EM ESPERA':
+                        $color = 'yellow';
+                        break;
+                    case 'A CAMINHO':
+                        $color = 'blue';
+                        break;
+                    case 'ENTREGUE':
+                        $color = 'grenn';
+                        break;
+                    case 'RECUSADO':
+                        $color = 'red';
+                        break;
+
+                }
 ?>
         <div>
             <img src="../assets/img/uploads/<?=$row1['caminhoIMG']?>" alt="Imagem">
             <p id="produto"><?=$row1['produto']?></p>
             <p id="data"><?=$row1['dataPEDIDO']?></p>
-            <p id="estado"><?=$row1['estado']?></p>
+            <p style="background-color: <?=$color?>;" class="estado"><?=$estado?></p>
         </div>
 <?php
             }

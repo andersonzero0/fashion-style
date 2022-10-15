@@ -66,7 +66,7 @@ if(!isset($_SESSION['token_authAdmin'])){
     </nav>
     <main>
         <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data" class="registrar-produto">
-
+            <sub id="alert" style="color: red;">*Todos os campos não estão preenchidos</sub>
             <div class="img-regP">
                 <input type="file" name="img-product" class="img-product">
             </div>
@@ -123,6 +123,8 @@ if(!isset($_SESSION['token_authAdmin'])){
                     <th>Produto</th>
                     <th>Valor</th>
                     <th>Nome Completo</th>
+                    <th>Data</th>
+                    <th>Hora</th>
                     <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Email</th>
@@ -131,6 +133,8 @@ if(!isset($_SESSION['token_authAdmin'])){
                     <td><?=$row1['produto']?></td>
                     <td><?=$row1['valor']?></td>
                     <td><?=$row1['nomeCompleto']?></td>
+                    <td><?=$row1['dataPEDIDO']?></td>
+                    <td><?=$row1['horaPEDIDO']?></td>
                     <td><?=$row1['endereco']?></td>
                     <td><?=$row1['telefone']?></td>
                     <td><?=$row1['email']?></td>
@@ -164,8 +168,25 @@ if(!isset($_SESSION['token_authAdmin'])){
     </footer>
 </body>
 </html>
+<?php
+}
+?>
 
-
+<?php
+if(isset($_SESSION['erroRegProduct'])){
+?>
+<script>
+    var alert = document.getElementById('alert');
+    alert.style.display = 'block';
+</script>
+<?php
+unset($_SESSION['erroRegProduct']);
+}else{
+?>
+<script>
+    var alert = document.getElementById('alert');
+    alert.style.display = 'none';
+</script>
 <?php
 }
 ?>

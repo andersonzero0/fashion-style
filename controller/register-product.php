@@ -1,5 +1,11 @@
 <?php
+session_start();
 require "../model/connect-db.php";
+
+if(empty($_POST['nome-p']) || empty($_POST['valor-p']) || empty($_FILES["img-product"])){
+  $_SESSION['erroRegProduct'] = 123;
+  die(header('location: ../view/admin/'));
+}
 
 #img upload
 $target_dir = "../assets/img/uploads/";

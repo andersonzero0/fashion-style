@@ -26,34 +26,16 @@ if(isset($entrar)){
                 $_SESSION['token_auth'] = $usuario;
                 header("location: redirect.php");
             }else{
-?>
-
-                <div>
-                    <p>Usuário e/ou senha incorretas</p>
-                    <a href="../view/login.php">Tente fazer login novamente</a>
-                </div>
-
-<?php
+                $_SESSION['senhaIncorreta'] = '123';
+                header('location: ../view/login.php');
             }
         }else{
-?>
-
-            <div>
-                <p>Usuário não encontrado.</p>
-                <a href="../view/login.php">Tente fazer login novamente</a>
-            </div>
-
-<?php
+            $_SESSION['userNo'] = '123';
+            header('location: ../view/login.php');
         }
     }else{
-?>
-
-        <div>
-            <p>Você já fez login. Saia para dessa conta e faça o login novamente.</p>
-            <a href="../index.php">Pagina Inicial</a>
-        </div>
-
-<?php
+        $_SESSION['loginFeito'] = '123';
+        header('location: ../view/login.php');
     }
 }else{
     header('location: ../index.php');
