@@ -22,7 +22,6 @@ if(isset($_POST['comprar'])) {
         VALUES ('$client', '$produto', '$data', '$hora', 'EM ESPERA')";
         
         if($conn->query($sql1) == TRUE){
-            $_SESSION['compRealizd'] = $client; 
 ?>
     <div>
         <p>Compra Realizada!</p>

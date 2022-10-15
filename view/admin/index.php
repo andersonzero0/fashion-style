@@ -117,8 +117,8 @@ if(!isset($_SESSION['token_authAdmin'])){
                 header('location: ../../controller/update.php');
             }
 ?>
-        <div id="pedidos">
-            <table>
+        <div class="pedidos">
+            <table class="tabela-pedidos">
                 <tr>
                     <th>Produto</th>
                     <th>Valor</th>
@@ -137,15 +137,15 @@ if(!isset($_SESSION['token_authAdmin'])){
                     <td>
                         <form action="index.php" method="get">
                             <!--ocultar esse elemento-->
-                            <input type="text" name="id" id="id" value="<?=$row1['id1']?>">
+                            <input type="text" name="id" class="id" value="<?=$row1['id1']?>">
 
-                            <select name="estado" id="estado">
+                            <select name="estado" class="estado">
                                 <option value="espera" <?php if($row1['estado'] == 'EM ESPERA'){ ?> selected <?php } ?>>EM ESPERA</option>
                                 <option value="caminho" <?php if($row1['estado'] == 'A CAMINHO'){ ?> selected <?php } ?>>A CAMINHO</option>
                                 <option value="entrege" <?php if($row1['estado'] == 'ENTREGE'){ ?> selected <?php } ?>>ENTREGE</option>
                                 <option value="recusado" <?php if($row1['estado'] == 'RECUSADO'){ ?> selected <?php } ?>>RECUSADO</option>
                             </select>
-                            <input type="submit" value="atualizar" name="atualizar">
+                            <input type="submit" value="ATUALIZAR" name="atualizar" id="botao-tabela">
                         </form>
                     </td>
                 </tr>

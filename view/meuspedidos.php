@@ -8,26 +8,72 @@ require "../model/connect-db.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/meuspedidos.css">
+    <script src="../assets/js/meuspedidos.js"></script>
     <title>Meus Pedidos - Fashion Style</title>
 </head>
 <body>
-    <header>
+    <nav class="nav-bar">
+        <div class="logo">
+            <a href="../index.php" target="_self" rel="next">Fashion Style</a>
+        </div>
+<?php
+    if(empty($_SESSION['token_auth']) && empty($_SESSION['token_authAdmin'])){
+?>
+        <!--SE NÃO HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li class="li"><a href="login.php" target="_self" rel="next" id="botao">LOGIN</a></li>
+                <li class="li"><a href="cadastrar.php" target="_self" rel="next">CADASTRAR</a></li>
+            </ul>
+        </div>
+<?php
+    }else{
+        require "../model/connect-db.php";
+        if(isset($_SESSION['token_auth'])) {
+            $user = $_SESSION['token_auth'];
+            $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }elseif(isset($_SESSION['token_authAdmin'])){
+            $user = 'admin';
+            $sql = "SELECT * FROM info_users INNER JOIN usuarios ON info_users.id = usuarios.id WHERE usuario = '$user'";
+        }
 
-    </header>
-
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+?>
+        <!--SE JA HÁ LOGIN-->
+        <div class="menu">
+            <ul>
+                <li class="li"><a href="meuspedidos.php" target="_self" rel="next" id="botao">MEUS PEDIDOS</a></li>
+                <li class="li-user">
+                    <a href="javascript:void(0)" class="dropbtn"><img src="../assets/img/icon-user.png" alt="Ícone de usuário" id="icon-user"></a>
+                    <div class="dropdown-container">
+                        <p class="id-username"><?=$row['nomeCompleto']?></p>
+                        <p class="id-user-email"><?=$row['email']?></p>
+                        <a href="cadastrar.php">CADASTRAR</a>
+                        <a href="../controller/exit.php"><button>SAIR</button></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<?php
+    }
+?>
+    </nav>
     <main>
 <?php
     if(isset($_SESSION['token_auth'])){
         $client = $_SESSION['token_auth'];
-        $sql = "SELECT * FROM pedidos WHERE client = '$client'";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+        $sql1 = "SELECT * FROM pedidos INNER JOIN produtos ON pedidos.produto = produtos.nome WHERE client = '$client'";
+        $result1 = $conn->query($sql1);
+        if($result1->num_rows > 0) {
+            while($row1 = $result1->fetch_assoc()) {
 ?>
         <div>
-            <p id="produto"><?=$row['produto']?></p>
-            <p id="data"><?=$row['dataPEDIDO']?></p>
-            <p id="estado"><?=$row['estado']?></p>
+            <img src="../assets/img/uploads/<?=$row1['caminhoIMG']?>" alt="Imagem">
+            <p id="produto"><?=$row1['produto']?></p>
+            <p id="data"><?=$row1['dataPEDIDO']?></p>
+            <p id="estado"><?=$row1['estado']?></p>
         </div>
 <?php
             }
