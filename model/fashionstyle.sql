@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Out-2022 às 14:55
+-- Tempo de geração: 16-Out-2022 às 01:27
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `fashionstyle`
 --
-
 CREATE DATABASE fashionstyle;
 USE fashionstyle;
 -- --------------------------------------------------------
@@ -80,16 +79,17 @@ CREATE TABLE `produtos` (
   `id` int(6) UNSIGNED NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `valor` double DEFAULT NULL,
-  `caminhoIMG` varchar(80) DEFAULT NULL
+  `caminhoIMG` varchar(80) DEFAULT NULL,
+  `estoque` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `valor`, `caminhoIMG`) VALUES
-(1, 'Blusa Preta', 49.99, 'Captura de tela 2022-09-25 140607.png'),
-(2, 'Sapato Nike', 119.99, 'Captura de tela 2022-10-01 172059.png');
+INSERT INTO `produtos` (`id`, `nome`, `valor`, `caminhoIMG`, `estoque`) VALUES
+(1, 'Blusa Preta', 49.99, 'Captura de tela 2022-09-25 140607.png', 10),
+(2, 'Sapato Nike', 119.99, 'Captura de tela 2022-10-01 172059.png', 10);
 
 -- --------------------------------------------------------
 
