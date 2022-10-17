@@ -172,17 +172,19 @@ body {
 }
 .dropdown-container {
     display: none;
-    background-color: rgb(238, 232, 232);
-    width: 350px;
-    height: 200px;
+    background-image: linear-gradient(to bottom, var(--cor3), white);
+    width: 300px;
+    height: 300px;
     position: fixed;
-    right: 75px;
+    top: 80px;
+    right: 120px;
     border-radius: 5px;
     font-family: var(--font-input);
     font-weight: bolder;
-    border: 5px solid var(--cor2);
+    border: 5px solid black;
 }
 .dropdown-container a button {
+    margin-top: 40px;
     font-weight: bolder;
     font-size: 20px;
     background-color: red;
