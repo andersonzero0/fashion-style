@@ -171,7 +171,7 @@ if(empty($_SESSION['token_authAdmin'])){
     $result4 = $conn->query($sql4);
     if($result4->num_rows > 0){
 ?>
-        <table>
+        <table class="tabela-edit">
             <thead>
                 <tr>
                     <th>Produto</th>
@@ -203,10 +203,12 @@ while($row4 = $result4->fetch_assoc()){
                     <td><?=$row4['nome']?></td>
                     <td><?=$row4['valor']?></td>
                     <td><?=$row4['estoque']?></td>
-                    <td><span class="material-symbols-outlined">edit</span></td>
+                    <td id="botao-edit"><span class="material-symbols-outlined">edit</span></td>
                 </tr>
-                <div>
-                    <span class="material-symbols-outlined">close</span>
+                <div class="form-edit">
+                    <div class="botao-excluir">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
                     <form action="index.php" method="get">
                         <legend>Editar Produto</legend>
 
@@ -221,11 +223,17 @@ while($row4 = $result4->fetch_assoc()){
 
                         <input style="display: none;" type="number" name="id" id="id" value="<?=$row4['id']?>">
                         
-                        <button type="submit" name="save"><span class="material-symbols-outlined">save</span></button>
-                    </form>
-                    <form action="index.php" method="get">
-                        <input style="display: none;" type="number" value="<?=$row4['id']?>" name="id_excluir" id="id_excluir">
-                        <button type="submit" name="btnexcluir"><span class="material-symbols-outlined">delete</span></button>
+                        <div class="botoes">
+                            <div>
+                                <button type="submit" name="save"><span class="material-symbols-outlined">save</span></button>
+                            </div>
+                            <form action="index.php" method="get">
+                                <input style="display: none;" type="number" value="<?=$row4['id']?>" name="id_excluir" id="id_excluir">
+                                <button type="submit" name="btnexcluir">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </form>
+                        </div>
                     </form>
                 </div>
 <?php
