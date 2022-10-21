@@ -177,7 +177,6 @@ if(empty($_SESSION['token_authAdmin'])){
                     <th>Produto</th>
                     <th>Preço</th>
                     <th>Estoque</th>
-                    <th>/</th>
                 </tr>
             </thead>
             <tbody>
@@ -190,7 +189,6 @@ while($row4 = $result4->fetch_assoc()){
         $id_p_edit = $_GET['id'];
         $sql5 = "UPDATE produtos SET nome = '$nome_p_edit', valor = '$valor_p_edit', estoque = '$estoque_p_edit' WHERE id = $id_p_edit";
         $conn->query($sql5);
-        header('location: index.php');
     }
     if(isset($_GET['btnexcluir'])){
         $id_excluir = $_GET['id_excluir'];
@@ -203,44 +201,42 @@ while($row4 = $result4->fetch_assoc()){
                     <td><?=$row4['nome']?></td>
                     <td><?=$row4['valor']?></td>
                     <td><?=$row4['estoque']?></td>
-                    <td id="botao-edit"><span class="material-symbols-outlined">edit</span></td>
                 </tr>
-                <div class="form-edit">
-                    <div class="botao-excluir">
-                        <span class="material-symbols-outlined">close</span>
-                    </div>
-                    <form action="index.php" method="get">
-                        <legend>Editar Produto</legend>
-
-                        <label for="nome">NOME:</label>
-                        <input type="text" name="nome" id="nome">
-
-                        <label for="valor">VALOR:</label>
-                        <input type="text" name="valor" id="valor">
-
-                        <label for="estoque">ESTOQUE:</label>
-                        <input type="number" name="estoque" id="estoque">
-
-                        <input style="display: none;" type="number" name="id" id="id" value="<?=$row4['id']?>">
-                        
-                        <div class="botoes">
-                            <div>
-                                <button type="submit" name="save"><span class="material-symbols-outlined">save</span></button>
-                            </div>
-                            <form action="index.php" method="get">
-                                <input style="display: none;" type="number" value="<?=$row4['id']?>" name="id_excluir" id="id_excluir">
-                                <button type="submit" name="btnexcluir">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </button>
-                            </form>
-                        </div>
-                    </form>
-                </div>
 <?php
 }
 ?>
             </tbody>
         </table>
+        <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
+
+        <div id="box-edit">
+        <button id="btn-close" onclick="exitFormEdit()"><span class="material-symbols-outlined">close</span></button>
+        <form id="form-edit" action="index.php" method="get">
+            <select name="id" id="id_edit_p">
+<?php
+        $sqlx = "SELECT * FROM produtos";
+        $resultx = $conn->query($sqlx);
+        while($rowx = $resultx->fetch_assoc()){
+?>
+            <option value="<?=$rowx['id']?>"><?=$rowx['nome']?></option>
+<?php
+        }
+?>
+            </select>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="valor">Valor:</label>
+            <input type="text" name="valor" id="valor" required>
+
+            <label for="estoque">Estoque:</label>
+            <input type="number" name="estoque" id="estoque" required>
+
+            <input type="submit" value="Salvar" name="save">
+        </form>
+        <form action="index.php" method="get">
+        </form>
+        </div>
 <?php
     }else{
         echo "Não há produtos";
@@ -275,4 +271,18 @@ unset($_SESSION['erroRegProduct']);
 <?php
 }
 ?>
-<!-- Front-End -->
+
+<script>
+    var btn_edit = document.getElementById('btn-edit');
+    var box_edit = document.getElementById('box-edit');
+
+    box_edit.style.display = 'none'
+
+    function showFormEdit() {
+        box_edit.style.display = 'block'
+    }
+
+    function exitFormEdit() {
+        box_edit.style.display = 'none'
+    }
+</script>
