@@ -4,7 +4,7 @@ include "../../model/connect-db.php";
 if(empty($_SESSION['token_authAdmin'])){
     header("location: ../../index.php");
 }else{
-    header('Refresh: 120;')
+    header('Refresh: 120;');
 ?>
 
 
