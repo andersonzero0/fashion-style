@@ -73,14 +73,14 @@
                         <label for="usuario" class="etiqueta" id="label-usuario">USUÁRIO:</label>
                         <div class="icone-input">
                             <span class="material-symbols-outlined" id="icone-usuario">person</span>
-                            <input type="text" name="usuario" id="usuario" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:">
+                            <input type="text" name="usuario" id="usuario" size="60" minlength="2" maxlength="80" placeholder="Informe o seu nome de usuário:" required>
                         </div>
                     </div>
                     <div class="container-controls">
                         <label for="senha" class="etiqueta" id="label-senha">SENHA:</label>
                         <div class="icone-input">
                             <span class="material-symbols-outlined" id="icone-senha">lock</span>
-                            <input type="password" name="senha" id="senha" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:">
+                            <input type="password" name="senha" id="senha" size="60" minlength="8" maxlength="80" placeholder="Digite a sua senha corretamente:" required>
                         </div>
                 </fieldset>
                 <input type="submit" name="entrar" value="ENTRAR" id="form-button">

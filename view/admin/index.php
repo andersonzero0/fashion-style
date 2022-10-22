@@ -4,7 +4,7 @@ include "../../model/connect-db.php";
 if(empty($_SESSION['token_authAdmin'])){
     header("location: ../../index.php");
 }else{
-    header('Refresh: 60;')
+    header('Refresh: 120;')
 ?>
 
 
@@ -70,24 +70,24 @@ if(empty($_SESSION['token_authAdmin'])){
         <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data" class="registrar-produto">
             <sub id="alert" style="color: red;">*Todos os campos não estão preenchidos</sub>
             <div class="img-regP">
-                <input type="file" name="img-product" class="img-product">
+                <input type="file" name="img-product" class="img-product" required>
             </div>
 
             <div class="info">
 
                 <div class="nome-produto">
                     <label for="nome-p">NOME:</label>
-                    <input type="text" name="nome-p" id="nome-p">
+                    <input type="text" name="nome-p" id="nome-p" required>
                 </div>
 
                 <div class="valor-produto">
                     <label for="valor-p">VALOR:</label>
-                    <input type="text" name="valor-p" id="valor-p">
+                    <input type="text" name="valor-p" id="valor-p" required>
                 </div>
 
                 <div class="estoque-produto">
                     <label for="estoque-p">ESTOQUE:</label>
-                    <input type="number" name="estoque-p" id="estoque-p">
+                    <input type="number" name="estoque-p" id="estoque-p" required>
                 </div>
 
             </div>
@@ -165,7 +165,7 @@ if(empty($_SESSION['token_authAdmin'])){
 <?php
     }
     }else{
-        echo "Não há pedidos";
+        echo "<p style='text-align: center; font-weight: bold''>Não há pedidos</p> <br>";
     }
     $sql4 = "SELECT * FROM produtos";
     $result4 = $conn->query($sql4);
@@ -177,6 +177,7 @@ if(empty($_SESSION['token_authAdmin'])){
                     <th>Produto</th>
                     <th>Preço</th>
                     <th>Estoque</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -189,18 +190,29 @@ while($row4 = $result4->fetch_assoc()){
         $id_p_edit = $_GET['id'];
         $sql5 = "UPDATE produtos SET nome = '$nome_p_edit', valor = '$valor_p_edit', estoque = '$estoque_p_edit' WHERE id = $id_p_edit";
         $conn->query($sql5);
+        echo "<script> window.location.href='index.php'; </script>";
     }
     if(isset($_GET['btnexcluir'])){
         $id_excluir = $_GET['id_excluir'];
+        $caminhoImgDelete = $_GET['caminhoImgDelete'];
+        $file = "../../assets/img/uploads/$caminhoImgDelete";
         $sql6 = "DELETE FROM produtos WHERE id = $id_excluir";
         $conn->query($sql6);
-        header('location: index.php');
+        unlink($file);
+        echo "<script> window.location.href='index.php'; </script>";
     }
 ?>
                 <tr>
                     <td><?=$row4['nome']?></td>
                     <td><?=$row4['valor']?></td>
                     <td><?=$row4['estoque']?></td>
+                    <td>
+                        <form action="index.php" method="get">
+                            <input style="display: none;" value="<?=$row4['id']?>" type="text" name="id_excluir" id="id_excluir">
+                            <input style="display: none;" value="<?=$row4['caminhoIMG']?>" type="text" name="caminhoImgDelete" id="caminhoImgDelete">
+                            <button name="btnexcluir" type="submit"><span class="material-symbols-outlined">delete</span></button>
+                        </form>
+                    </td>
                 </tr>
 <?php
 }
@@ -239,7 +251,7 @@ while($row4 = $result4->fetch_assoc()){
         </div>
 <?php
     }else{
-        echo "Não há produtos";
+        echo "<p style='text-align: center; font-weight: bold'>Não há produtos</p>";
     }
 ?>
     </main>

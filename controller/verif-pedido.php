@@ -20,6 +20,10 @@ if(isset($_POST['comprar'])) {
 
         $sql1 = "INSERT INTO pedidos(client, produto, dataPEDIDO, horaPEDIDO, estado)
         VALUES ('$client', '$produto', '$data', '$hora', 'EM ESPERA')";
+
+        $updateEstoque = $row['estoque'] - 1;
+        $sql2 = "UPDATE produtos SET estoque = $updateEstoque WHERE id = '$id'";
+        $conn->query($sql2);
         
         if($conn->query($sql1) == TRUE){
 ?>

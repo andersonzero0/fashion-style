@@ -71,16 +71,16 @@ require "../model/connect-db.php";
                 $estado = $row1['estado'];
                 switch ($estado) {
                     case 'EM ESPERA':
-                        $color = 'yellow';
+                        $color = '#FFCF2B';
                         break;
                     case 'A CAMINHO':
-                        $color = 'blue';
+                        $color = '#45C4B0';
                         break;
-                    case 'ENTREGUE':
-                        $color = 'grenn';
+                    case 'ENTREGE':
+                        $color = '#07E85A';
                         break;
                     case 'RECUSADO':
-                        $color = 'red';
+                        $color = '#FF1D23';
                         break;
 
                 }

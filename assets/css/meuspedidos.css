@@ -146,7 +146,7 @@ main {
     align-items: center;
     height: 180px;
     width: 20vw;
-    background-color: var(--cor2);
+    background-color: #BFBEBF;
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
@@ -178,7 +178,8 @@ img {
     align-items: center;
 }
 #produto {
-    background-color: var(--cor5);
+    background-color: #404040;
+    color: white;
     padding: 5px;
     border-radius: 3px;
     font-weight: bolder;
@@ -189,5 +190,5 @@ img {
 .estado p {
     padding: 5px;
     font-weight: bolder;
-    border-radius: 5px;
+    border-radius: 3px;
 }
