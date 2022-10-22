@@ -107,8 +107,8 @@ require "../model/connect-db.php";
             }
         }else{
 ?>
-        <div>
-            <p>Você ainda não fez compras!</p>
+        <div style="margin: auto;">
+            <p style="text-align: center; font-weight: bolder">Você ainda não fez compras!</p>
             <a href="../index.php">Acesse aqui para comprar nossos produtos</a>
         </div>
 <?php
@@ -116,8 +116,8 @@ require "../model/connect-db.php";
     }else{
 
 ?>
-        <div>
-            <p>Faça login para ver os seus pedidos</p>
+        <div style="margin: auto;">
+            <p style="text-align: center; font-weight: bolder">Faça login para ver os seus pedidos</p>
             <a href="login.php">Ir para Login</a>
         </div>
 <?php

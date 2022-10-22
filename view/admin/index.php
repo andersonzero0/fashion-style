@@ -94,6 +94,7 @@ if(empty($_SESSION['token_authAdmin'])){
 
             <input type="submit" value="REGISTRAR" id="botao-registrar">
         </form>
+<hr>
 <?php
     $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
     
@@ -162,6 +163,7 @@ if(empty($_SESSION['token_authAdmin'])){
                 </tr>
             </table>
         </div>
+<hr>
 <?php
     }
     }else{
