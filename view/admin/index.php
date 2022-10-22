@@ -184,11 +184,10 @@ if(empty($_SESSION['token_authAdmin'])){
 <?php
 while($row4 = $result4->fetch_assoc()){
     if(isset($_GET['save'])){
-        $nome_p_edit = $_GET['nome'];
         $valor_p_edit = $_GET['valor'];
         $estoque_p_edit = $_GET['estoque'];
         $id_p_edit = $_GET['id'];
-        $sql5 = "UPDATE produtos SET nome = '$nome_p_edit', valor = '$valor_p_edit', estoque = '$estoque_p_edit' WHERE id = $id_p_edit";
+        $sql5 = "UPDATE produtos SET valor = '$valor_p_edit', estoque = '$estoque_p_edit' WHERE id = $id_p_edit";
         $conn->query($sql5);
         echo "<script> window.location.href='index.php'; </script>";
     }
@@ -220,9 +219,9 @@ while($row4 = $result4->fetch_assoc()){
             </tbody>
         </table>
         <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
-
+    
         <div id="box-edit">
-        <button id="btn-close" onclick="exitFormEdit()"><span class="material-symbols-outlined">close</span></button>
+        <span id="btn-close" onclick="exitFormEdit()" class="material-symbols-outlined">close</span>
         <form id="form-edit" action="index.php" method="get">
             <select name="id" id="id_edit_p">
 <?php
@@ -235,9 +234,6 @@ while($row4 = $result4->fetch_assoc()){
         }
 ?>
             </select>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
-
             <label for="valor">Valor:</label>
             <input type="text" name="valor" id="valor" required>
 

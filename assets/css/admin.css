@@ -272,6 +272,15 @@ option {
     margin-left: 260px;
     cursor: pointer;
 }
+
+#btn-edit {
+    cursor: pointer;
+}
+
+#btn-close {
+    cursor: pointer;
+}
+
 .botoes {
     display: flex;
     flex-direction: row;
