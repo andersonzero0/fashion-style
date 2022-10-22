@@ -171,16 +171,18 @@ if(empty($_SESSION['token_authAdmin'])){
     $result4 = $conn->query($sql4);
     if($result4->num_rows > 0){
 ?>
-        <table class="tabela-edit">
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>Estoque</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="container-edit">
+            <div class="table-edit">
+                <table class="tabela-edit">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 <?php
 while($row4 = $result4->fetch_assoc()){
     if(isset($_GET['save'])){
@@ -201,25 +203,28 @@ while($row4 = $result4->fetch_assoc()){
         echo "<script> window.location.href='index.php'; </script>";
     }
 ?>
-                <tr>
-                    <td><?=$row4['nome']?></td>
-                    <td><?=$row4['valor']?></td>
-                    <td><?=$row4['estoque']?></td>
-                    <td>
-                        <form action="index.php" method="get">
-                            <input style="display: none;" value="<?=$row4['id']?>" type="text" name="id_excluir" id="id_excluir">
-                            <input style="display: none;" value="<?=$row4['caminhoIMG']?>" type="text" name="caminhoImgDelete" id="caminhoImgDelete">
-                            <button name="btnexcluir" type="submit"><span class="material-symbols-outlined">delete</span></button>
-                        </form>
-                    </td>
-                </tr>
+                        <tr>
+                            <td><?=$row4['nome']?></td>
+                            <td><?=$row4['valor']?></td>
+                            <td><?=$row4['estoque']?></td>
+                            <td>
+                                <form action="index.php" method="get">
+                                    <input style="display: none;" value="<?=$row4['id']?>" type="text" name="id_excluir" id="id_excluir">
+                                    <input style="display: none;" value="<?=$row4['caminhoIMG']?>" type="text" name="caminhoImgDelete" id="caminhoImgDelete">
+                                    <button name="btnexcluir" type="submit"><span class="material-symbols-outlined">delete</span></button>
+                                </form>
+                            </td>
+                        </tr>
 <?php
 }
 ?>
-            </tbody>
-        </table>
-        <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
-    
+                    </tbody>
+                </table>
+            </div>
+            <div class="div-edit">
+                <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
+            </div>
+        </div>
         <div id="box-edit">
         <span id="btn-close" onclick="exitFormEdit()" class="material-symbols-outlined">close</span>
         <form id="form-edit" action="index.php" method="get">

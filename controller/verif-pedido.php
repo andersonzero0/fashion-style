@@ -26,12 +26,8 @@ if(isset($_POST['comprar'])) {
         $conn->query($sql2);
         
         if($conn->query($sql1) == TRUE){
-?>
-    <div>
-        <p>Compra Realizada!</p>
-        <a href="../index.php">Continuar com as Compras</a>
-    </div>
-<?php
+            $_SESSION['compra-realizada'] = time();
+            header('location: ../index.php');
         }
 
     }else{

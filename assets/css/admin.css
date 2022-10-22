@@ -238,6 +238,13 @@ option {
     border-radius: 5px;
     font-weight: bolder;
 }
+.container-edit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+}
 #botao-tabela {
     background-color: var(--cor5);
     font-weight: bolder;
@@ -255,8 +262,7 @@ option {
 #botao-edit {
     cursor: pointer;
 }
-.form-edit {
-    display: none;
+#box-edit {
     margin: 10px auto 10px auto;
     width: 300px;
     flex-direction: column;

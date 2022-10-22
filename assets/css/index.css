@@ -96,15 +96,16 @@ body {
 }
 .dropdown-container {
     display: none;
-    background-color: rgb(238, 232, 232);
-    width: 350px;
-    height: 200px;
+    background-image: linear-gradient(to bottom, var(--cor3), white);
+    width: 300px;
+    height: 300px;
     position: fixed;
-    right: 90px;
+    top: 80px;
+    right: 100px;
     border-radius: 5px;
     font-family: var(--font-input);
     font-weight: bolder;
-    border: 5px solid var(--cor2);
+    border: 5px solid black;
 }
 .dropdown-container a button {
     font-weight: bolder;
@@ -129,6 +130,29 @@ body {
 }
 
 /* Main */
+.compra-realizada {
+    background-color: white;
+    border: 3px solid black;
+    position: fixed;
+    height: 150px;
+    width: 450px;
+    top: 45vh;
+    left: 35vw;
+}
+.btn-close {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.message {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: var(--font-logo);
+}
 .main {
     margin-top: 125px;
 }

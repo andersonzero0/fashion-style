@@ -74,6 +74,16 @@ $result = $conn->query($sql);
     }
 ?>
     </nav>
+    <div class="compra-realizada" id="box-buy" style="display: none;">
+        <div class="btn-close" onclick="closebox()">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </div>
+        <div class="message">
+            <p>Compra realizada com sucesso!</p>
+        </div>
+    </div>
     <main class="main">
         <form action="index.php" method="get" class="search-box">
             <span class="material-symbols-outlined">
@@ -119,3 +129,19 @@ $result = $conn->query($sql);
     </footer>
 </body>
 </html>
+<script>
+    function closebox() {
+        document.getElementById('box-buy').style.display = 'none'
+    }
+</script>
+<?php
+    if (isset($_SESSION['compra-realizada'])) {
+?>
+<script>
+    var boxbuy = document.getElementById('box-buy')
+    boxbuy.style.display = 'block'
+</script>
+<?php
+    unset($_SESSION['compra-realizada']);
+    }
+?>
