@@ -4,7 +4,9 @@ include "../../model/connect-db.php";
 if(empty($_SESSION['token_authAdmin'])){
     header("location: ../../index.php");
 }else{
-    header('Refresh: 120;');
+    $sqlCharts = 'SELECT COUNT(id1), dataPEDIDO FROM pedidos GROUP BY dataPEDIDO ORDER BY COUNT(id1)';
+    $resultCharts = $conn->query($sqlCharts);
+    header('Refresh: 300;');
 ?>
 
 
@@ -16,6 +18,45 @@ if(empty($_SESSION['token_authAdmin'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/admin.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['Data', 'Quantidades De Vendas', { role: "style" }],
+    <?php
+    while($rowCharts = $resultCharts->fetch_assoc()) {
+        $dataCharts = $rowCharts['dataPEDIDO'];
+        $countCharts = $rowCharts['COUNT(id1)'];
+    ?>
+            ['<?=$dataCharts?>', '<?=$countCharts?>', 'color: #F3C522'],
+    <?php
+    }
+    ?>
+        ]);
+
+        var options = {
+            title: 'Chess opening moves',
+            width: 400,
+            height: 260,
+            legend: { position: 'none' },
+            //chart: { title: 'Vendas da Fashion Style',
+            //        subtitle: 'quantidade de vendas por data' },
+            bars: 'horizontal', // Required for Material Bar Charts.
+            axes: {
+            x: {
+                0: { side: 'top', label: 'Quantidade de Vendas'} // Top x-axis.
+            }
+            },
+            bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+        };
+    </script>
     <title>Admin - Fashion Style</title>
 </head>
 <body>    
@@ -64,37 +105,83 @@ if(empty($_SESSION['token_authAdmin'])){
         </div>
 <?php
     }
+    $sqlFat = "SELECT ROUND(SUM(valor), 2) FROM pedidos INNER JOIN produtos ON pedidos.produto = produtos.nome";
+    $resultFat = $conn->query($sqlFat);
+    $rowFat = $resultFat->fetch_assoc();
 ?>
     </nav>
+    <nav class="nav-opc">
+        <ul>
+            <li><a href="#dashboard-nav">Dashboard</a></li>
+            <li><a href="#pedidos-nav">Pedidos</a></li>
+            <li><a href="#produtos-nav">Produtos</a></li>
+        </ul>
+    </nav>
     <main>
-        <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data" class="registrar-produto">
-            <sub id="alert" style="color: red;">*Todos os campos não estão preenchidos</sub>
-            <div class="img-regP">
-                <input type="file" name="img-product" class="img-product" required>
-            </div>
 
-            <div class="info">
+    <!--BOX FORM EDIT-->
+    <div id="box-edit">
+        <span id="btn-close" onclick="exitFormEdit()" class="material-symbols-outlined">close</span>
+        <form id="form-edit" action="index.php" method="get">
+            <label for="id_edit_p">Produto:</label>
+            <select name="id" id="id_edit_p">
+<?php
+        $sqlx = "SELECT * FROM produtos";
+        $resultx = $conn->query($sqlx);
+        while($rowx = $resultx->fetch_assoc()){
+?>
+            <option value="<?=$rowx['id']?>"><?=$rowx['nome']?></option>
+<?php
+        }
+?>
+            </select>
+            <label for="valor">Valor:</label>
+            <input class="input-edit" type="text" name="valor" id="valor" required>
 
-                <div class="nome-produto">
-                    <label for="nome-p">NOME:</label>
-                    <input type="text" name="nome-p" id="nome-p" required>
-                </div>
+            <label for="estoque">Estoque:</label>
+            <input class="input-edit" type="number" name="estoque" id="estoque" required>
 
-                <div class="valor-produto">
-                    <label for="valor-p">VALOR:</label>
-                    <input type="text" name="valor-p" id="valor-p" required>
-                </div>
-
-                <div class="estoque-produto">
-                    <label for="estoque-p">ESTOQUE:</label>
-                    <input type="number" name="estoque-p" id="estoque-p" required>
-                </div>
-
-            </div>
-
-            <input type="submit" value="REGISTRAR" id="botao-registrar">
+            <input id="btn-salvar" type="submit" value="Salvar" name="save">
         </form>
-<hr>
+        </div>
+    <!--**********-->
+
+        <h1 id="dashboard-nav" class="h1-dashboard">DASHBOARD</h1>
+        <div class="conteiner-admin">
+            <div class="box-grafico">
+                <div id="top_x_div"></div>
+            </div>
+            <div class="regsProduct-div">
+                <form action="../../controller/register-product.php" method="post" enctype="multipart/form-data" class="registrar-produto">
+                    <sub id="alert" style="color: red;">*Todos os campos não estão preenchidos</sub>
+                    <div class="img-regP">
+                        <input type="file" name="img-product" class="img-product" required>
+                    </div>
+                    <div class="info">
+                        <div class="nome-produto">
+                            <label for="nome-p">NOME:</label>
+                            <input type="text" name="nome-p" id="nome-p" required>
+                        </div>
+                        <div class="valor-produto">
+                            <label for="valor-p">VALOR:</label>
+                            <input type="text" name="valor-p" id="valor-p" required>
+                        </div>
+                        <div class="estoque-produto">
+                            <label for="estoque-p">ESTOQUE:</label>
+                            <input type="number" name="estoque-p" id="estoque-p" required>
+                        </div>
+                    </div>
+                    <input type="submit" value="REGISTRAR" id="botao-registrar">
+                </form>
+            </div>
+            <div class="fatura">
+                <div class="text-fat"><h1>Fatutamento da Fashion Style</h1></div>
+                <div><p>R$<?=$rowFat['ROUND(SUM(valor), 2)']?></p></div>
+            </div>
+        </div>
+
+
+        <h1 id="pedidos-nav" class="h1-dashboard">PEDIDOS</h1>
 <?php
     $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
     
@@ -163,7 +250,6 @@ if(empty($_SESSION['token_authAdmin'])){
                 </tr>
             </table>
         </div>
-<hr>
 <?php
     }
     }else{
@@ -173,7 +259,10 @@ if(empty($_SESSION['token_authAdmin'])){
     $result4 = $conn->query($sql4);
     if($result4->num_rows > 0){
 ?>
-        <div class="container-edit">
+        <h1 id="produtos-nav" class="h1-dashboard">PRODUTOS</h1>
+        <div class="div-edit">
+                <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
+        </div>
             <div class="table-edit">
                 <table class="tabela-edit">
                     <thead>
@@ -223,35 +312,6 @@ while($row4 = $result4->fetch_assoc()){
                     </tbody>
                 </table>
             </div>
-            <div class="div-edit">
-                <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
-            </div>
-        </div>
-        <div id="box-edit">
-        <span id="btn-close" onclick="exitFormEdit()" class="material-symbols-outlined">close</span>
-        <form id="form-edit" action="index.php" method="get">
-            <select name="id" id="id_edit_p">
-<?php
-        $sqlx = "SELECT * FROM produtos";
-        $resultx = $conn->query($sqlx);
-        while($rowx = $resultx->fetch_assoc()){
-?>
-            <option value="<?=$rowx['id']?>"><?=$rowx['nome']?></option>
-<?php
-        }
-?>
-            </select>
-            <label for="valor">Valor:</label>
-            <input type="text" name="valor" id="valor" required>
-
-            <label for="estoque">Estoque:</label>
-            <input type="number" name="estoque" id="estoque" required>
-
-            <input type="submit" value="Salvar" name="save">
-        </form>
-        <form action="index.php" method="get">
-        </form>
-        </div>
 <?php
     }else{
         echo "<p style='text-align: center; font-weight: bold'>Não há produtos</p>";

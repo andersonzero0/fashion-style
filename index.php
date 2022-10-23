@@ -6,7 +6,7 @@ if(!isset($_GET['procurar'])){
     $sql = "SELECT * FROM produtos";
 }elseif(isset($_GET['procurar'])){
     $search = $_GET['search'];
-    $sql = "SELECT * FROM produtos WHERE nome LIKE '$search%'";
+    $sql = "SELECT * FROM produtos WHERE nome LIKE '%$search%'";
 }else{
     $sql = "SELECT * FROM produtos";
 }
@@ -75,7 +75,7 @@ $result = $conn->query($sql);
 ?>
     </nav>
     <div class="compra-realizada" id="box-buy" style="display: none;">
-        <div class="btn-close" onclick="closebox()">
+        <div style="cursor: pointer;" class="btn-close" onclick="closebox()">
             <span class="material-symbols-outlined">
                 close
             </span>

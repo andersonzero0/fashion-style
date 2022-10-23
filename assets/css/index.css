@@ -202,7 +202,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--cor3);
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     margin: 5px;
 }
@@ -213,6 +213,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 45%;
+    height: 100%;
 }
 img {
     max-width: 100%;
