@@ -14,6 +14,7 @@
 * {
     font-family: var(--font-geral);
     box-sizing: border-box;
+    text-decoration: none;
 }
 body {
     margin: 0px;
@@ -165,6 +166,7 @@ body {
     border-radius: 5px;
     padding: 12px 20px;
     margin-top: 20px;
+    cursor: pointer;
 }
 #icon-user {
     height: 60px;
@@ -190,6 +192,14 @@ body {
     background-color: red;
     color: white;
     font-family: var(--font-input);
+}
+.dropdown-container .auth {
+    margin: 10px;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
 }
 .id-username {
     font-size: 22px;

@@ -16,6 +16,7 @@
 * {
     font-family: var(--font-geral);
     box-sizing: border-box;
+    text-decoration: none;
 }
 body {
     margin: 0px;
@@ -82,7 +83,7 @@ body {
 }
 #botao {
     background-color: var(--cor4);
-    font-weight: bolder;
+    font-weight: bold;
     color: var(--cor1);
     border-radius: 5px;
 }
@@ -115,6 +116,14 @@ body {
     font-family: var(--font-input);
     cursor: pointer;
 }
+.dropdown-container .auth {
+    margin: 10px;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
 .id-username {
     font-size: 22px;
 }
@@ -138,6 +147,7 @@ body {
     width: 450px;
     top: 45vh;
     left: 35vw;
+    z-index: 1;
 }
 .btn-close {
     position: relative;
@@ -233,7 +243,7 @@ img:hover {
     margin: 3px;
 }
 .nome-produto p {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bolder;
     background-color: #E5E4E5;
     color: black;
@@ -252,6 +262,7 @@ img:hover {
     color: white;
     border: 1px solid black;
     font-weight: bolder;
+    cursor: pointer;
 }
 #comprar:hover {
     background-color: var(--cor4);

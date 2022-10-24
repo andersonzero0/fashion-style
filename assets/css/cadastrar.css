@@ -16,6 +16,7 @@
 * {
     font-family: var(--font-geral);
     box-sizing: border-box;
+    text-decoration: none;
 }
 body {
     margin: 0px;
@@ -115,6 +116,14 @@ body {
     color: white;
     font-family: var(--font-input);
     cursor: pointer;
+}
+.dropdown-container .auth {
+    margin: 10px;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
 }
 .id-username {
     font-size: 22px;

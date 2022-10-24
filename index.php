@@ -63,8 +63,8 @@ $result = $conn->query($sql);
                     <div class="dropdown-container">
                         <p class="id-username"><?=$row1['nomeCompleto']?></p>
                         <p class="id-user-email"><?=$row1['email']?></p>
-                        <a href="view/login.php">LOGIN</a>
-                        <a href="view/cadastrar.php">CADASTRAR</a>
+                        <a class="auth" href="view/login.php">LOGIN</a>
+                        <a class="auth" href="view/cadastrar.php">CADASTRAR</a>
                         <a href="controller/exit.php"><button>SAIR</button></a>
                     </div>
                 </li>
@@ -84,7 +84,7 @@ $result = $conn->query($sql);
             <p>Compra realizada com sucesso!</p>
         </div>
     </div>
-    <main class="main">
+    <main id="main" class="main">
         <form action="index.php" method="get" class="search-box">
             <span class="material-symbols-outlined">
                 search
@@ -138,8 +138,11 @@ $result = $conn->query($sql);
     if (isset($_SESSION['compra-realizada'])) {
 ?>
 <script>
+    var main = document.getElementById('main')
     var boxbuy = document.getElementById('box-buy')
     boxbuy.style.display = 'block'
+    //main.style.pointerEvents = 'none'
+    //main.style.touchAction = 'none'
 </script>
 <?php
     unset($_SESSION['compra-realizada']);

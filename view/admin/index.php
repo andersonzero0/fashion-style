@@ -25,13 +25,13 @@ if(empty($_SESSION['token_authAdmin'])){
 
         function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
-            ['Data', 'Quantidades De Vendas', { role: "style" }],
+            ['Data', 'Quantidades De Vendas'],
     <?php
     while($rowCharts = $resultCharts->fetch_assoc()) {
         $dataCharts = $rowCharts['dataPEDIDO'];
         $countCharts = $rowCharts['COUNT(id1)'];
     ?>
-            ['<?=$dataCharts?>', '<?=$countCharts?>', 'color: #F3C522'],
+            ['<?=$dataCharts?>', '<?=$countCharts?>'],
     <?php
     }
     ?>
@@ -96,8 +96,8 @@ if(empty($_SESSION['token_authAdmin'])){
                     <div class="dropdown-container">
                         <p class="id-username"><?=$row3['nomeCompleto']?></p>
                         <p class="id-user-email"><?=$row3['email']?></p>
-                        <a href="../login.php">LOGIN</a>
-                        <a href="../cadastrar.php">CADASTRAR</a>
+                        <a class="auth" href="../login.php">LOGIN</a>
+                        <a class="auth" href="../cadastrar.php">CADASTRAR</a>
                         <a href="../../controller/exit.php"><button>SAIR</button></a>
                     </div>
                 </li>
@@ -146,7 +146,9 @@ if(empty($_SESSION['token_authAdmin'])){
         </div>
     <!--**********-->
 
-        <h1 id="dashboard-nav" class="h1-dashboard">DASHBOARD</h1>
+        <div id="dashboard-nav">
+            <h1 class="h1-dashboard">DASHBOARD</h1>
+        </div>
         <div class="conteiner-admin">
             <div class="box-grafico">
                 <div id="top_x_div"></div>
@@ -181,7 +183,9 @@ if(empty($_SESSION['token_authAdmin'])){
         </div>
 
 
-        <h1 id="pedidos-nav" class="h1-dashboard">PEDIDOS</h1>
+        <div id="pedidos-nav">
+            <h1 class="h1-dashboard">PEDIDOS</h1>
+        </div>
 <?php
     $sql1 = "SELECT * FROM usuarios INNER JOIN info_users ON usuarios.id = info_users.id INNER JOIN pedidos ON usuarios.usuario = pedidos.client INNER JOIN produtos ON pedidos.produto = produtos.nome";
     
@@ -259,7 +263,9 @@ if(empty($_SESSION['token_authAdmin'])){
     $result4 = $conn->query($sql4);
     if($result4->num_rows > 0){
 ?>
-        <h1 id="produtos-nav" class="h1-dashboard">PRODUTOS</h1>
+        <div id="produtos-nav">
+            <h1 class="h1-dashboard">PRODUTOS</h1>
+        </div>
         <div class="div-edit">
                 <button id="btn-edit" onclick="showFormEdit()"><span class="material-symbols-outlined">edit</span></button>
         </div>
