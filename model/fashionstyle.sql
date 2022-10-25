@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Out-2022 às 00:19
+-- Tempo de geração: 26-Out-2022 às 00:24
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -82,7 +82,8 @@ INSERT INTO `produtos` (`id`, `nome`, `valor`, `caminhoIMG`, `estoque`) VALUES
 (5, 'Pulôver suéter', 59.9, 'Pulôver suéter da fibra acrílica simples.jpg', 48),
 (6, 'Suéter Branco', 50, 'sueter branco.png', 98),
 (7, 'Calça Jens Feminina', 100, 'calca_jeans feminina.png', 18),
-(8, 'Calça Jens Masculina', 89.9, 'Calca-Jeans-Masculina.jpg', 8);
+(8, 'Calça Jens Masculina', 89.9, 'Calca-Jeans-Masculina.jpg', 8),
+(9, 'Meia', 29.9, 'meia.jpg', 20);
 
 -- --------------------------------------------------------
 
@@ -152,7 +153,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
