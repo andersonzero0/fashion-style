@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Out-2022 às 20:23
+-- Tempo de geração: 26-Out-2022 às 00:19
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -42,9 +42,7 @@ CREATE TABLE `info_users` (
 
 INSERT INTO `info_users` (`id`, `nomeCompleto`, `endereco`, `telefone`, `email`) VALUES
 (1, 'admin', 'null', '0123456789', 'admin@fashion'),
-(2, 'usuario test', 'null', '0987654321', 'usuario@fashion'),
-(5, 'Test Usuario2', 'A, A, A, A', '999999999999', 'usuario2@style'),
-(6, 'Anderson Viana', 'Várzea Redonda, SGA, Ceará, Brasil', '(85) 987654321', 'anderson@gmail.com');
+(2, 'usuario test', 'null', '0987654321', 'usuario@fashion');
 
 -- --------------------------------------------------------
 
@@ -60,13 +58,6 @@ CREATE TABLE `pedidos` (
   `horaPEDIDO` time DEFAULT NULL,
   `estado` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `pedidos`
---
-
-INSERT INTO `pedidos` (`id1`, `client`, `produto`, `dataPEDIDO`, `horaPEDIDO`, `estado`) VALUES
-(7, 'andersonviana', 'Calção Preto', '2022-10-22', '14:17:21', 'EM ESPERA');
 
 -- --------------------------------------------------------
 
@@ -87,12 +78,11 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `valor`, `caminhoIMG`, `estoque`) VALUES
-(3, 'Calção Preto', 99.9, 'download.jpg', 96),
-(4, 'Jaqueta sintética regular', 180, 'Jaqueta sintética regular.jpg', 20),
-(5, 'Pulôver suéter da fibra acríli', 59.9, 'Pulôver suéter da fibra acrílica simples.jpg', 50),
-(6, 'Suéter Branco', 50, 'sueter branco.png', 100),
-(7, 'Calça Jens Feminina', 100, 'calca_jeans feminina.png', 20),
-(8, 'Calça Jens Masculina', 89.9, 'Calca-Jeans-Masculina.jpg', 10);
+(3, 'Calção Preto', 99.9, 'download.jpg', 94),
+(5, 'Pulôver suéter', 59.9, 'Pulôver suéter da fibra acrílica simples.jpg', 48),
+(6, 'Suéter Branco', 50, 'sueter branco.png', 98),
+(7, 'Calça Jens Feminina', 100, 'calca_jeans feminina.png', 18),
+(8, 'Calça Jens Masculina', 89.9, 'Calca-Jeans-Masculina.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -112,9 +102,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `usuario`, `senha`) VALUES
 (1, 'admin', 'fashion@2022'),
-(2, 'usuario1', 'usuario@1'),
-(5, 'usuario2', 'usuario@2'),
-(6, 'andersonviana', 'anderson123');
+(2, 'usuario1', 'usuario@1');
 
 --
 -- Índices para tabelas despejadas
@@ -158,7 +146,7 @@ ALTER TABLE `info_users`
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id1` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id1` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
