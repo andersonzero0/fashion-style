@@ -177,7 +177,7 @@ if(empty($_SESSION['token_authAdmin'])){
                 </form>
             </div>
             <div class="fatura">
-                <div class="text-fat"><h1>Fatutamento da Fashion Style</h1></div>
+                <div class="text-fat"><h1>Faturamento da Fashion Style</h1></div>
                 <div><p>R$<?=$rowFat['ROUND(SUM(valor), 2)']?></p></div>
             </div>
         </div>
