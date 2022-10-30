@@ -213,7 +213,7 @@ if(empty($_SESSION['token_authAdmin'])){
                 $id = $_GET['id'];
                 $sql2 = "UPDATE pedidos SET estado = '$estado' WHERE id1 = '$id'";
                 $conn->query($sql2);
-                header('location: ../../controller/update.php');
+                echo "<script> window.location.href='index.php'; </script>";
             }
 ?>
         <div class="pedidos">
